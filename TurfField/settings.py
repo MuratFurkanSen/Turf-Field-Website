@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'reservation',
     'team',
     'user',
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [
