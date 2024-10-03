@@ -1,29 +1,28 @@
-{% extends 'base.html' %}
 {% load static %}
-{% block additionalCss %}
-    <link rel="stylesheet" href={% static 'css/home.css' %}>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    {% block additionalCss %}{% endblock %}
+</head>
 <body>
 <div>
     <!-- ////////HOME BUTONLARI //////////////////////////////// -->
     <div class="buttonsHome">
-        <button class="homeButton">homeButton</button>
         <button class="homeReservation">homeReservation</button>
-        <button class="homeTeam">homeTeam</button>
-        <button class="homeUser">homeUser</button>
         <button class="homeSign">homeSign in</button>
         <button class="homeLog">homeLog in</button>
-        {% block anan %}
-            <button>Anan</button>
-        {% endblock %}
+        {% block anan %}{% endblock %}
         <div class="dropdown">
             <button class="dropdown-btn">Takımlarım</button>
             <div class="dropdown-content">
                 <a href="/team/templates/olusturulmusTakim.html">Olusturulmus Takimimin Adi</a>
                 <a href="#" class="takimOlusturButonu">Takım Oluştur</a>
-                <a href="#">Bir Anan</a>
+                <a href="#">Bir Aboli</a>
             </div>
         </div>
+
     </div>
     <!-- //////////////////////////////////////// -->
 
