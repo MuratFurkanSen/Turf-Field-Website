@@ -1,3 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+
 /* ////////////GENEL BUTONLAR CSS////////////////   */
 button {
     width: 100px;
@@ -12,6 +24,7 @@ button {
 
 /* ////////////GENEL LOG IN ////////////////   */
 .login-container {
+    overflow: auto;
     display: none; /* Gerekirse gösterilecektir */
     position: fixed; /* Sayfanın sabit bir yerinde durması için */
     top: 50%; /* Yüksekliğin ortası */
@@ -103,3 +116,13 @@ button {
     padding: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
+
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: cornflowerblue;
+    text-align: center;
+}
+
