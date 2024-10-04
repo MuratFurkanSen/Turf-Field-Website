@@ -37,10 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # External Apps
+    'bootstrap5',
+    # My Apps
     'home',
     'reservation',
     'team',
     'user',
+    'field'
 ]
 
 MIDDLEWARE = [
