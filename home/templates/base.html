@@ -7,103 +7,13 @@
     <link rel="stylesheet" href={% static 'css/home.css' %}>
     {% block additionalCss %}{% endblock %}
 </head>
-<body >
-<header>
-    <!-- ////////HOME BUTONLARI //////////////////////////////// -->
-    <div class="buttonsHome">
-        <button class="homeLog">homeLog in</button>
-        <button class="homeReservation">homeReservation</button>
-        {% if user.id is not None %}
-            {{ user.username  }}
-        {% endif %}
-        <div class="dropdown">
-            <button class="dropdown-btn">Takımlarım</button>
-            <div class="dropdown-content">
-                <a href="/team/templates/olusturulmusTakim.html">Olusturulmus Takimimin Adi</a>
-                <a href="javascript:void(0);" class="takimOlusturButonu">Takım Oluştur</a>
-                <a href="#">Bir Takıma Katil</a>
-            </div>
-        </div>
+<body>
+{% include '__particles/__header.html' %}
 
-    </div>
-    <!-- //////////////////////////////////////// -->
+{% block content %}{% endblock %}
 
-
-    <!-- //////////////SIGN IN PART//////////////////////////////////
-
-
-    <div class="sign-container">
-        <h2 class="closeSign" style="cursor: pointer; margin-left: 95%">X</h2>
-        <h2>Sign In</h2>
-        <form id="loginForm">
-            <input class="signInput" type="text" id="inputUsername" placeholder="Username" required>
-            <input class="signInput" type="text" id="inputFullName" placeholder="Full Name" required>
-            <input class="signInput" type="password" id="inputPassword" placeholder="Password" required>
-            <input class="signInput" type="text" id="inputMail" placeholder="Mail" required>
-            <select class="signInput" id="inputPosition" placeholder="Position" required>
-                <option value="">Pozisyon</option>
-                <option value="Kaleci">Kaleci</option>
-                <option value="Defans">Defans</option>
-                <option value="Orta Saha">Orta Saha</option>
-                <option value="Forvet">Forvet</option>
-            </select>
-            <input class="signInput" type="text" id="inputBirth" placeholder="Date of Birth" required>
-            <input class="signInput" type="text" id="inputPhone" placeholder="Phone Number" required>
-
-            <button type="submit">Sign In</button>
-        </form>
-    </div>
-    -->
-
-    <!-- /////////////////////////////////////////////////// -->
-
-
-    <!-- /////////////LOG IN PART////////////////////////////////// -->
-    <div class="login-container">
-        <h2 class="closeLog" style="cursor: pointer; margin-left: 95%">X</h2>
-        <h2>Tekrar Hos Geldiniz</h2>
-        <form id="loginForm">
-            <input class="signInput" type="text" id="inputUsername" placeholder="Kullanıcı Adi" required>
-            <input class="signInput" type="password" id="inputPassword" placeholder="Parola" required>
-            <button type="submit">Giris Yap</button>
-            <p>VEYA</p>
-            <input class="signInput" type="text" id="inputUsername" placeholder="Username" required>
-            <input class="signInput" type="text" id="inputFullName" placeholder="Full Name" required>
-            <input class="signInput" type="password" id="inputPassword" placeholder="Password" required>
-            <input class="signInput" type="text" id="inputMail" placeholder="Mail" required>
-            <select class="signInput" id="inputPosition" placeholder="Position" required>
-                <option value="">Pozisyon</option>
-                <option value="Kaleci">Kaleci</option>
-                <option value="Defans">Defans</option>
-                <option value="Orta Saha">Orta Saha</option>
-                <option value="Forvet">Forvet</option>
-            </select>
-            <input class="signInput" type="text" id="inputBirth" placeholder="Date of Birth" required>
-            <input class="signInput" type="text" id="inputPhone" placeholder="Phone Number" required>
-
-            <button type="submit">Sign In</button>
-        </form>
-    </div>
-    <!-- /////////////////////////////////////////////////// -->
-
-    <!-- /////////////CREATE TEAM BUTTONUNA GİRİNCE////////////////////////////////// -->
-    <div class="create-team-button">
-        <h2 class="closeCreate" style="cursor: pointer; margin-left: 95%">X</h2>
-        <h2>Takim Olustur</h2>
-        <form id="loginForm">
-            <input class="signInput" type="text" id="" placeholder="Team Name" required>
-            <button type="submit">Create</button>
-        </form>
-    </div>
-    <!-- /////////////////////////////////////////////////// -->
-</header>
-
-<footer>
-
-</footer>
-
-
-
-</body>
+{% include '__particles/__footer.html' %}
 <script src={% static 'js/home.js' %}></script>
+{% block additionalScript %}{% endblock %}
+</body>
 </html>

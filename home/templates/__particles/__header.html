@@ -1,0 +1,51 @@
+{% load static %}
+<header>
+    <div class="buttonsHome">
+        <button class="homeLog">homeLog in</button>
+        <button class="homeReservation">homeReservation</button>
+        {% if user.id is not None %}
+            {{ user.username }}
+        {% else %}
+            <!-- /////////////LOG IN PART////////////////////////////////// -->
+            <div class="login-container">
+                <h2 class="closeLog" style="cursor: pointer; margin-left: 95%">X</h2>
+                <h2>Tekrar Hos Geldiniz</h2>
+                <form id="loginForm">
+                    <input class="signInput" type="text" id="inputUsername" placeholder="Kullanıcı Adi" required>
+                    <input class="signInput" type="password" id="inputPassword" placeholder="Parola" required>
+                    <button type="submit">Giris Yap</button>
+                    <p>VEYA</p>
+                    {{ form.username }}
+                    {{ form.full_name }}
+                    {{ form.password1 }}
+                    {{ form.password2 }}
+                    {{ form.email }}
+                    {{ form.position }}
+                    <button type="submit">Sign In</button>
+                </form>
+            </div>
+            <!-- /////////////////////////////////////////////////// -->
+
+        {% endif %}
+        <div class="dropdown">
+            <button class="dropdown-btn">Takımlarım</button>
+            <div class="dropdown-content">
+                <a href="/team/templates/olusturulmusTakim.html">Olusturulmus Takimimin Adi</a>
+                <a href="javascript:void(0);" class="takimOlusturButonu">Takım Oluştur</a>
+                <a href="#">Bir Takıma Katil</a>
+            </div>
+        </div>
+
+    </div>
+    <!-- //////////////////////////////////////// -->
+    <!-- /////////////CREATE TEAM BUTTONUNA GİRİNCE////////////////////////////////// -->
+    <div class="create-team-button">
+        <h2 class="closeCreate" style="cursor: pointer; margin-left: 95%">X</h2>
+        <h2>Takim Olustur</h2>
+        <form id="loginForm">
+            <input class="signInput" type="text" id="" placeholder="Team Name" required>
+            <button type="submit">Create</button>
+        </form>
+    </div>
+    <!-- /////////////////////////////////////////////////// -->
+</header>

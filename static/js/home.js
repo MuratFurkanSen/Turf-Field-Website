@@ -8,18 +8,6 @@ let boolLog = false;
 let boolCreateTeam = false;
 
 
-
-homeReservation.addEventListener("click", function() {
-    window.location.href = "http://localhost:8000/reservation";
-})
-
-
-
-
-
-
-
-
 homeLog.addEventListener("click", function() {
     if (!boolCreateTeam){
         boolLog = true;
