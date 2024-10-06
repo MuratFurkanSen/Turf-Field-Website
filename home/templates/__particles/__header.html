@@ -1,8 +1,8 @@
 {% load static %}
 <header>
     <div class="buttonsHome">
-        <button class="homeLog">homeLog in</button>
-        <button class="homeReservation">homeReservation</button>
+        <button class="homeLog" onclick="homeLog()">homeLog in</button>
+        <a class="homeReservation" href="/reservation/">homeReservation</a>
         {% if user.id is not None %}
             {{ user.username }}
         {% else %}
