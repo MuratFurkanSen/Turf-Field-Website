@@ -10,23 +10,14 @@
             <div class="login-container">
                 <h2 class="closeLog" style="cursor: pointer; margin-left: 95%">X</h2>
                 <h2>Tekrar Hos Geldiniz</h2>
+                <br>
                 <form id="loginForm">
-                    <input class="signInput" type="text" id="inputUsername" placeholder="Kullanıcı Adi" required>
-                    <input class="signInput" type="password" id="inputPassword" placeholder="Parola" required>
-                    <button type="submit">Giris Yap</button>
-                    <p>VEYA</p>
-                    {{ form.username }}
-                    {{ form.full_name }}
-                    {{ form.password1 }}
-                    {{ form.password2 }}
-                    {{ form.email }}
-                    {{ form.position }}
-                    <button type="submit">Sign In</button>
+                    {% include '__particles/login.html' %}
                 </form>
             </div>
-            <!-- /////////////////////////////////////////////////// -->
-
         {% endif %}
+
+
         <div class="dropdown">
             <button class="dropdown-btn">Takımlarım</button>
             <div class="dropdown-content">
@@ -37,8 +28,8 @@
         </div>
 
     </div>
-    <!-- //////////////////////////////////////// -->
-    <!-- /////////////CREATE TEAM BUTTONUNA GİRİNCE////////////////////////////////// -->
+
+
     <div class="create-team-button">
         <h2 class="closeCreate" style="cursor: pointer; margin-left: 95%">X</h2>
         <h2>Takim Olustur</h2>
