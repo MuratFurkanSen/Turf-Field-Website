@@ -23,7 +23,7 @@ button {
 /* ////////////////////////////   */
 
 /* ////////////GENEL LOG IN ////////////////   */
-.login-container {
+.user-container {
     overflow: auto;
     display: none; /* Gerekirse gösterilecektir */
     position: fixed; /* Sayfanın sabit bir yerinde durması için */

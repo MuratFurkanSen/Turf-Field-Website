@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import UserProfile
 
 
@@ -17,9 +17,9 @@ class UserRegistrationForm(UserCreationForm):
     full_name = forms.CharField(max_length=255, required=True,
                                 widget=forms.TextInput(attrs={'class': 'signInput', 'placeholder': 'Name'}))
     birth_date = forms.DateField(required=True,
-                                 widget=forms.DateInput(attrs={'class': 'signInput', 'placeholder': 'Birth date'}))
+                                 widget=forms.DateInput(attrs={'class': 'signInput','type':'date', 'placeholder': 'Birth date'}))
     phone_number = forms.CharField(max_length=20, required=True,
-                                   widget=forms.TextInput(attrs={'class': 'signInput', 'placeholder': 'Phone number'}))
+                                   widget=forms.TextInput(attrs={'class': 'signInput', 'type':'tel','pattern':'[0-9]{3}-[0-9]{3}-[0-9]{4}', 'placeholder': 'Phone number'}))
     position = forms.ChoiceField(choices=choices, required=True,
                                  widget=forms.Select(attrs={'class': 'signInput', 'placeholder': 'Position'}))
     password1 = forms.CharField(
@@ -57,5 +57,17 @@ class UserRegistrationForm(UserCreationForm):
         )
         if commit:
             user_profile.save()
-
         return user
+
+class UserLoginForm(AuthenticationForm):
+    username = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'signInput', 'placeholder': 'Username'})
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={'class': 'signInput', 'placeholder': 'Password'})
+    )
+    class Meta:
+        model = User
+        fields = ('username', 'password')
+
+

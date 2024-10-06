@@ -1,17 +1,12 @@
-let boolLog = false;
-let boolCreateTeam = false;
-let boolSign = false;
-
 function homeLog(){
-    if (!boolCreateTeam){
-        boolLog = true;
-        document.querySelector(".login-container").style.display = "block";
-    }
-    else {
-        boolCreateTeam = false;
-        boolLog = true;
-        document.querySelector(".create-team-button").style.display = "none";
-        document.querySelector(".login-container").style.display = "block";
-    }
-
+        document.querySelector(".user-container").style.display = "block";
+        document.getElementById("loginForm").style.display = "block";
+}
+function getRegisterForm(){
+        document.getElementById("loginForm").style.display = "none";
+        document.getElementById("registerForm").style.display = "block";
+}
+function getLoginForm(){
+        document.getElementById("registerForm").style.display = "none";
+        document.getElementById("loginForm").style.display = "block";
 }

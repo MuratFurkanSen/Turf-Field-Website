@@ -1,42 +1,35 @@
 {% load static %}
 <header>
     <div class="buttonsHome">
-        <button class="homeLog" onclick="homeLog()">homeLog in</button>
         <a class="homeReservation" href="/reservation/">homeReservation</a>
         {% if user.id is not None %}
             {{ user.username }}
+            <a href="user/logout">Logout</a>
         {% else %}
-            <!-- /////////////LOG IN PART////////////////////////////////// -->
-            <div class="login-container">
+            <button class="homeLog" onclick="homeLog()">homeLog in</button>
+            <div class="user-container">
                 <h2 class="closeLog" style="cursor: pointer; margin-left: 95%">X</h2>
-                <h2>Tekrar Hos Geldiniz</h2>
-                <br>
-                <form id="loginForm">
-                    {% include '__particles/login.html' %}
-                </form>
+                <div id="loginForm" style="display: none">
+                    <form method="POST" action="user/login">
+                        {% csrf_token %}
+                        {% include '__particles/login.html' %}
+                    </form>
+                    <br><br>
+                    <p style="text-align: center">Are u new to <strong>HalıSahamda</strong> :)
+                        <button onclick="getRegisterForm()"> Register</button>
+                    </p>
+                </div>
+                <div id="registerForm" style="display: none">
+                    <form id="registerForm" method="POST" action="user/register">
+                        {% csrf_token %}
+                        {% include '__particles/register.html' %}
+                    </form>
+                    <p style="text-align: center">Are u new to <strong>HalıSahamda</strong> :)
+                        <button onclick="getLoginForm()"> Login</button>
+                    </p>
+
+                </div>
             </div>
         {% endif %}
-
-
-        <div class="dropdown">
-            <button class="dropdown-btn">Takımlarım</button>
-            <div class="dropdown-content">
-                <a href="/team/templates/olusturulmusTakim.html">Olusturulmus Takimimin Adi</a>
-                <a href="javascript:void(0);" class="takimOlusturButonu">Takım Oluştur</a>
-                <a href="#">Bir Takıma Katil</a>
-            </div>
-        </div>
-
     </div>
-
-
-    <div class="create-team-button">
-        <h2 class="closeCreate" style="cursor: pointer; margin-left: 95%">X</h2>
-        <h2>Takim Olustur</h2>
-        <form id="loginForm">
-            <input class="signInput" type="text" id="" placeholder="Team Name" required>
-            <button type="submit">Create</button>
-        </form>
-    </div>
-    <!-- /////////////////////////////////////////////////// -->
 </header>
