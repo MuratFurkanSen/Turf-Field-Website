@@ -1,5 +1,41 @@
-from django.shortcuts import render
+from django.contrib.auth.models import User
+from django.http import HttpResponseForbidden
+from django.shortcuts import render, redirect
+
+from .apps import TeamConfig
+from .forms import TeamCreationForm, TeamUpdateForm
+from .models import Team
 
 # Create your views here.
-def team(request):
-    return render(request, 'team.html')
+def create_team(request):
+    if request.method == 'POST':
+        form = TeamCreationForm(request.POST) if "create" in request.POST else TeamUpdateForm(request.POST)
+        print(form.errors)
+        if form.is_valid():
+            team = form.save(commit=False)
+            team.captain = request.user
+            team.save()
+            team.members.add(request.user)
+            return redirect(f"/team/{team.id}")
+
+
+def edit_team(request, id):
+    team = Team.objects.get(id=id)
+    if request.user != team.captain:
+        return HttpResponseForbidden("You are not allowed to edit this team")
+    if request.method == 'POST':
+        form = TeamCreationForm(request.POST) if "create" in request.POST else TeamUpdateForm(request.POST)
+        if form.is_valid():
+            team = Team.objects.get(id=id)
+            next_user= User.objects.get(id=form.cleaned_data['id'])
+            team.members.add(next_user)
+            return redirect(f"/team/{id}")
+
+def team(request, id):
+    team = Team.objects.get(id=id)
+    if request.user not in team.members.all():
+        return HttpResponseForbidden("You are not a member of this team")
+    create_form = TeamCreationForm()
+    update_form = TeamUpdateForm()
+    context = {'create_form': create_form, 'update_form': update_form, 'id': id, 'team': team}
+    return render(request, 'team.html', context)
