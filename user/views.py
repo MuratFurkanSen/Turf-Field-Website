@@ -7,13 +7,10 @@ from user.forms import UserRegistrationForm, UserLoginForm
 # Create your views here.
 
 def user_register(request):
-    print("Aboo1")
     if request.method == 'POST':
-        print("Aboo2")
         form = UserRegistrationForm(request.POST)
         print(form.errors)
         if form.is_valid():
-            print("Aboo3")
             form.save()
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password1')
