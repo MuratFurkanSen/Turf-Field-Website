@@ -217,13 +217,13 @@ button {
 
 
 footer {
-
+    color: white;
     height: auto;
     width: 100%;
     position: relative;
     bottom: 0;
     z-index: -5;
-    background-color: #525252; /* Arka plan rengi */
+    background-color: #2D2F31; /* Arka plan rengi */
     padding: 20px; /* İç boşluk */
     text-align: center; /* Yazı ortalama */
     margin-top: auto;
