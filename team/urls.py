@@ -1,7 +1,13 @@
 from django.urls import path, include
-import team.views
+from team import views
 
 urlpatterns = [
-    path('', team.views.team),
+    path('create', views.create_team),
+    path('<int:id>/update', views.edit_team),
+    path('<int:id>', views.team),
+
+
+
+
 
 ]

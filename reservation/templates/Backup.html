@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Grid</title>
+    <link rel="stylesheet" href="{% static 'css/reservation.css' %}">
+</head>
+<body>
+<div class="filter-reservation">
+    <div class="dropdown-content">
+        <input type="text" id="search" placeholder="Şehir ara..." onkeyup="filterCities()">
+        <div onclick="selectCity('İstanbul')">İstanbul</div>
+        <div onclick="selectCity('Ankara')">Ankara</div>
+        <div onclick="selectCity('İzmir')">İzmir</div>
+        <div onclick="selectCity('Bursa')">Bursa</div>
+        <div onclick="selectCity('Antalya')">Antalya</div>
+    </div>
+    <br>
+    <div class="dropdown-content">
+        <input type="text" id="search" placeholder="İlçe ara..." onkeyup="filterCities()">
+        <div onclick="selectCity('Buca')">Buca</div>
+        <div onclick="selectCity('Bornova')">Bornova</div>
+        <div onclick="selectCity('Karşıyaka')">Karşıyaka</div>
+    </div>
+    <br>
+    <div class="dropdown-content">
+        <input type="text" id="search" placeholder="Gün ara..." onkeyup="filterCities()">
+        <div onclick="selectCity('pazartesi')">Pazartesi</div>
+        <div onclick="selectCity('sali')">Salı</div>
+        <div onclick="selectCity('carsamba')">Çarsamba</div>
+        <div onclick="selectCity('persembe')">Perşembe</div>
+        <div onclick="selectCity('cuma')">Cuma</div>
+        <div onclick="selectCity('cumartesi')">Cumartesi</div>
+        <div onclick="selectCity('pazar')">Pazar</div>
+    </div>
+</div>
+
+
+
+<div class="photo-grid">
+    {% for k in "123456789" %}
+        <div class="photo-loop">
+            <img src="{% static 'images/kafkaf.JPG' %} " alt="Photo 2">
+            <p>abcabc</p>
+        </div>
+    {% endfor %}
+</div>
+
+
+
+</body>
+<script src={% static 'js/reservation.js' %}></script>
+</html>

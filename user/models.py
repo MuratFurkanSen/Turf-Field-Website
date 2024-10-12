@@ -10,6 +10,7 @@ class UserProfile(models.Model):
     birth_date = models.DateField()
     position = models.CharField(max_length=50, blank=True)
     phone_number = models.CharField(max_length=50)
+    wallet_balance = models.IntegerField(default=0)
 
     def __str__(self):
         return f"{self.id}| " + self.user.username
