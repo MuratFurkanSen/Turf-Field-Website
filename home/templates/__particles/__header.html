@@ -1,21 +1,36 @@
 {% load static %}
 <header>
-    <div class="buttonsHome">
-        <a class="homeReservation" href="/reservation/">homeReservation</a>
-        {% if user.id is not None %}
-            {{ user.username }}
-            <a href="user/logout">Logout</a>
-        {% else %}
-            <button class="homeLog" onclick="homeLog()">homeLog in</button>
+    <div class="colorHome">
+        <div class="imgAndButtons">
+            <img class="homeLogo" src="{% static 'images/kafkaf.JPG' %}">
+            <div class="rightAlign">
+                {% if user.is_authenticated %}
+                    <a class="homeReservation gapBetweenHome" href="reservation">Reservation</a>
+                    <a class="gapBetweenHome" href="//">Teams</a>
+                    <div class="dropDownLogText">
+                        <a class="hover-text gapBetweenHome">{{ user.username }}</a>
+                        <div class="dropDownLogOut">
+                            <a class="logout-btn" href="user/logout">Logout</a>
+                        </div>
+                    </div>
+                {% else %}
+                    <a class="homeReservation gapBetweenHome" href="//">Halı Sahalar</a>
+                    <button class="homeLog" style="width: fit-content; height: fit-content" onclick="homeLog()">Log In
+                    </button>
+                {% endif %}
+            </div>
+        </div>
+
+        {% if not user.is_authenticated %}
             <div class="user-container">
-                <h2 class="closeLog" style="cursor: pointer; margin-left: 95%">X</h2>
+                <h2 class="closeLog" style="cursor: pointer; margin-left: 95%" onclick="xButtonCloseLogHome()">X</h2>
                 <div id="loginForm" style="display: none">
                     <form method="POST" action="user/login">
                         {% csrf_token %}
                         {% include '__particles/login.html' %}
                     </form>
                     <br><br>
-                    <p style="text-align: center">Are u new to <strong>HalıSahamda</strong> :)
+                    <p style="text-align: center">Are you new to <strong>HalıSahamda</strong>?
                         <button onclick="getRegisterForm()"> Register</button>
                     </p>
                 </div>
@@ -24,12 +39,12 @@
                         {% csrf_token %}
                         {% include '__particles/register.html' %}
                     </form>
-                    <p style="text-align: center">Are u new to <strong>HalıSahamda</strong> :)
+                    <p style="text-align: center">Are you new to <strong>HalıSahamda</strong>?
                         <button onclick="getLoginForm()"> Login</button>
                     </p>
-
                 </div>
             </div>
         {% endif %}
     </div>
 </header>
+

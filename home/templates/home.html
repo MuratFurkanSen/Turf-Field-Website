@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block additionalCss %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
 <body>
 </body>
 <script src={% static 'js/home.js' %}></script>
-</html>
+

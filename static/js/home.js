@@ -10,3 +10,9 @@ function getLoginForm(){
         document.getElementById("registerForm").style.display = "none";
         document.getElementById("loginForm").style.display = "block";
 }
+
+function xButtonCloseLogHome() {
+        document.querySelector(".user-container").style.display = "none";
+        document.getElementById("registerForm").style.display = "none";
+        document.getElementById("loginForm").style.display = "none";
+}
