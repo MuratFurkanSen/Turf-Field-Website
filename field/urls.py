@@ -1,6 +1,7 @@
 from django.urls import path, include
-import home.views
+import field.views
 
 urlpatterns = [
+    path('create', field.views.createField, name='creation'),
 
 ]
