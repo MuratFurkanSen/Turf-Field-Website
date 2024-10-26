@@ -1,0 +1,98 @@
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+
+.mainHomeDiv{
+    margin-top: 10%;
+    width: 100%;
+    height: 30%;
+    background-color: green;
+    display: inline-flex;
+}
+
+.profileHomeImg{
+
+}
+
+
+.mainPhoto{
+    margin-left: 2%;
+    align-items: center;
+    margin-right: 5%;
+    cursor: pointer;
+}
+
+.profileInfo{
+    color: white;
+    display: inline-flex;
+    white-space: nowrap;
+    justify-content: space-between;
+    gap: 50px;
+    align-items: center;
+    text-align: center;
+    margin: auto auto auto 0;
+}
+
+
+
+
+
+
+
+.homeCards{
+    display: inline-flex;
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    visibility: hidden;
+    position: absolute;
+    background-color: #f1f1f1;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+
+
+
+.iconPhotoDesign{
+    width: 250%;
+
+}
+.playerCards{
+    margin:30px;
+    white-space: nowrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 sütun */
+    grid-template-rows: repeat(3, 1fr); /* 3 sütun */
+    gap: 60px;
+    width: 100%;
+    justify-content: end;
+
+}
+.iconPhoto{
+    width: 30%;
+    cursor: pointer;
+}
+
+.deneme {
+    justify-content: start;
+}
+
+.deneme300{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.deneme,.playerCards{
+    margin-top: 50px;
+}
+
+

@@ -1,9 +1,4 @@
 {% load static %}
-<form method="POST" action="create">
-    {% csrf_token %}
-    {{ create_form.as_p }}
-    <input type="submit" value="Submit" name="create">
-</form>
 <form method="POST" action="{{team.id}}/update">
     {% csrf_token %}
     {{ update_form.as_p }}

@@ -2,11 +2,10 @@ from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 
 from user.forms import UserRegistrationForm, UserLoginForm
-
-
-# Create your views here.
+from team.forms import TeamCreationForm
 def home(request):
     context = {'user': request.user}
+    context['create_form'] = TeamCreationForm()
     if not request.user.is_authenticated:
         register_form = UserRegistrationForm()
         login_form = UserLoginForm()

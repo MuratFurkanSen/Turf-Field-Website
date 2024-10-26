@@ -1,9 +1,211 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block additionalCss %}
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock %}
-<body>
-</body>
-<script src={% static 'js/home.js' %}></script>
+{% block content %}
 
+<main class="mainHomeDiv">
+    <img class="mainPhoto"  src="{% static 'images/fifaiconpng.png' %}" alt="Photo 2">
+    <div class="profileInfo">
+        <div class="profileInfoContent">
+            <h2 style="cursor: pointer">İSTATİSTİKLERİM</h2>
+            <h4 style="visibility: hidden">STOPER</h4>
+        </div>
+        <div class="profileInfoContent">
+            <h2 style="cursor: pointer">POZİSYON</h2>
+            <h4>STOPER</h4>
+        </div>
+        <div class="profileInfoContent">
+            <h2 style="cursor: pointer">AKTİF HALI SAHALARIM</h2>
+            <h3>2</h3>
+        </div>
+        <div class="profileInfoContent">
+            <h2 style="cursor: pointer">İPTAL TALEPLERİM</h2>
+            <h3>2</h3>
+        </div>
+    </div>
+</main>
+
+
+
+
+
+
+<div class="homeCards">
+    <div class="deneme">
+        <div class="iconPhotoDesign">
+            <img class="iconPhoto" src="{% static 'images/fifaiconpng.png' %}" alt="Photo 2">
+        </div>
+    </div>
+    <div style="margin-top: 60px" class="playerCards">
+        <div>
+            <div class="deneme300">
+                <h2>Pace</h2>
+                <h2>10</h2>
+            </div>
+            <ul>
+                <div class="deneme300">
+                    <li>Acceleration</li>
+                    <li>10</li>
+                </div>
+                <div class="deneme300">
+                    <li>Sprint Speed</li>
+                    <li>10</li>
+                </div>
+            </ul>
+        </div>
+        <div>
+            <div class="deneme300">
+                <h2>Shooting</h2>
+                <h2>10</h2>
+            </div>
+            <ul>
+                <div class="deneme300">
+                    <li>Att. Position</li>
+                    <li>10</li>
+                </div>
+                <div class="deneme300">
+                    <li>Finishing</li>
+                    <li>10</li>
+                </div>
+                <div class="deneme300">
+                    <li>Shot Power</li>
+                    <li>10</li>
+                </div>
+                <div class="deneme300">
+                    <li>Long Shots</li>
+                    <li>10</li>
+                </div>
+                <div class="deneme300">
+                    <li>Volleys</li>
+                    <li>10</li>
+                </div>
+                <div class="deneme300">
+                    <li>Penalties</li>
+                    <li>10</li>
+                </div>
+            </ul>
+        </div>
+        <div>
+            <div class="deneme300">
+                <h2>Passing</h2>
+                <h2>10</h2>
+            </div>
+            <ul>
+                <div class="deneme300">
+                    <li>Vision</li>
+                    <li>10</li>
+                </div>
+                <div class="deneme300">
+                    <li>Crossing</li>
+                    <li>10</li>
+                </div>
+                <div class="deneme300">
+                    <li>FK Acc.</li>
+                    <li>10</li>
+                </div>
+                <div class="deneme300">
+                    <li>Short Pass</li>
+                    <li>10</li>
+                </div>
+                <div class="deneme300">
+                    <li>Long Pass</li>
+                    <li>10</li>
+                </div>
+                <div class="deneme300">
+                    <li>Curve</li>
+                    <li>10</li>
+                </div>
+            </ul>
+        </div>
+        <div>
+            <div class="deneme300">
+                <h2>Dribbling</h2>
+                <h2>10</h2>
+            </div>
+            <ul>
+                <div class="deneme300">
+                    <li>Agility</li>
+                    <li>10</li>
+                </div>
+                <div class="deneme300">
+                    <li>Balance</li>
+                    <li>10</li>
+                </div>
+                <div class="deneme300">
+                    <li>Reactions</li>
+                    <li>10</li>
+                </div>
+                <div class="deneme300">
+                    <li>Ball Control</li>
+                    <li>10</li>
+                </div>
+                <div class="deneme300">
+                    <li>Dribbling</li>
+                    <li>10</li>
+                </div>
+                <div class="deneme300">
+                    <li>Composure</li>
+                    <li>10</li>
+                </div>
+            </ul>
+        </div>
+        <div>
+            <div class="deneme300">
+                <h2>Defending</h2>
+                <h2>10</h2>
+            </div>
+            <ul>
+                <div class="deneme300">
+                    <li>Interceptions</li>
+                    <li>10</li>
+                </div>
+                <div class="deneme300">
+                    <li>Heading Acc.</li>
+                    <li>10</li>
+                </div>
+                <div class="deneme300">
+                    <li>Def. Aware</li>
+                    <li>10</li>
+                </div>
+                <div class="deneme300">
+                    <li>Stand Tackle</li>
+                    <li>10</li>
+                </div>
+                <div class="deneme300">
+                    <li>Slide Tackle</li>
+                    <li>10</li>
+                </div>
+            </ul>
+        </div>
+        <div>
+            <div class="deneme300">
+                <h2>Physical</h2>
+                <h2>10</h2>
+            </div>
+            <ul>
+                <div class="deneme300">
+                    <li>Jumping</li>
+                    <li>10</li>
+                </div>
+                <div class="deneme300">
+                    <li>Stamina</li>
+                    <li>10</li>
+                </div>
+                <div class="deneme300">
+                    <li>Strength</li>
+                    <li>10</li>
+                </div>
+                <div class="deneme300">
+                    <li>Aggression</li>
+                    <li>10</li>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+<script src="{% static 'js/home.js' %}"></script>
