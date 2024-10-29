@@ -4,7 +4,32 @@
 }
 
 
-.mainHomeDiv{
+.homeBoxes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 3 sütun */
+    grid-template-rows: repeat(2, 1fr); /* 3 sütun */
+    width: 80%;
+    margin: auto auto 50px auto;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+
+.haliSahaBulma {
+    display: grid;
+    width: 80%;
+    margin: auto;
+
+}
+
+.haliSahaBulmaImg {
+    width: 100%;
+    cursor: pointer;
+}
+
+
+.mainHomeDiv {
+    margin-bottom: 2%;
     margin-top: 10%;
     width: 100%;
     height: 30%;
@@ -12,19 +37,19 @@
     display: inline-flex;
 }
 
-.profileHomeImg{
+.profileHomeImg {
 
 }
 
 
-.mainPhoto{
+.mainPhoto {
     margin-left: 2%;
     align-items: center;
     margin-right: 5%;
     cursor: pointer;
 }
 
-.profileInfo{
+.profileInfo {
     color: white;
     display: inline-flex;
     white-space: nowrap;
@@ -36,12 +61,7 @@
 }
 
 
-
-
-
-
-
-.homeCards{
+.homeCards {
     display: inline-flex;
     width: 80%;
     height: 80%;
@@ -59,14 +79,13 @@
 }
 
 
-
-
-.iconPhotoDesign{
+.iconPhotoDesign {
     width: 250%;
 
 }
-.playerCards{
-    margin:30px;
+
+.playerCards {
+    margin: 30px;
     white-space: nowrap;
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 sütun */
@@ -76,7 +95,8 @@
     justify-content: end;
 
 }
-.iconPhoto{
+
+.iconPhoto {
     width: 30%;
     cursor: pointer;
 }
@@ -85,14 +105,34 @@
     justify-content: start;
 }
 
-.deneme300{
+.deneme300 {
     display: flex;
     justify-content: space-between;
     gap: 20px;
 }
 
-.deneme,.playerCards{
+.deneme, .playerCards {
     margin-top: 50px;
+}
+
+
+.mainHomeDiv .profilePhotoEdit{
+    display: inline-flex;
+}
+
+.profilePhotoEdit {
+    margin-left: 1%;
+    width: 15%;
+}
+
+
+.whiteBoard {
+    display: none;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 85px;
+    top: 165px;
 }
 
 

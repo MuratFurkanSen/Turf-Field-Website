@@ -6,15 +6,17 @@
 {% block content %}
 
 <main class="mainHomeDiv">
-    <img class="mainPhoto"  src="{% static 'images/fifaiconpng.png' %}" alt="Photo 2">
+
+    <div class="profilePhotoEdit">
+        <img class="mainPhoto" src="{% static 'images/fifaiconpng.png' %}" alt="Photo 2">
+        <img class="whiteBoard" src="{% static 'images/whiteBack.png' %}" alt="Photo 2">
+    </div>
+
+
     <div class="profileInfo">
         <div class="profileInfoContent">
-            <h2 style="cursor: pointer">İSTATİSTİKLERİM</h2>
+            <h2 style="cursor: pointer">Abo1</h2>
             <h4 style="visibility: hidden">STOPER</h4>
-        </div>
-        <div class="profileInfoContent">
-            <h2 style="cursor: pointer">POZİSYON</h2>
-            <h4>STOPER</h4>
         </div>
         <div class="profileInfoContent">
             <h2 style="cursor: pointer">AKTİF HALI SAHALARIM</h2>
@@ -24,12 +26,28 @@
             <h2 style="cursor: pointer">İPTAL TALEPLERİM</h2>
             <h3>2</h3>
         </div>
+        <div class="profileInfoContent">
+            <h2 style="cursor: pointer">BAKİYEM</h2>
+            <h4>20TL</h4>
+        </div>
     </div>
 </main>
 
 
-
-
+<div class="homeBoxes">
+    <div class="haliSahaBulma">
+        <img class="haliSahaBulmaImg" src="{% static 'images/starbucks.png' %}" alt="Photo 2">
+    </div>
+    <div class="haliSahaBulma">
+        <img class="haliSahaBulmaImg" src="{% static 'images/starbucks.png' %}" alt="Photo 2">
+    </div>
+    <div class="haliSahaBulma">
+        <img class="haliSahaBulmaImg" src="{% static 'images/starbucks.png' %}" alt="Photo 2">
+    </div>
+    <div class="haliSahaBulma">
+        <img class="haliSahaBulmaImg" src="{% static 'images/starbucks.png' %}" alt="Photo 2">
+    </div>
+</div>
 
 
 <div class="homeCards">

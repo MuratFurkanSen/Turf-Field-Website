@@ -38,3 +38,12 @@ document.querySelector('.mainPhoto').addEventListener('click', function() {
 document.querySelector('.iconPhoto').addEventListener('click', function() {
     document.querySelector('.homeCards').style.visibility = 'hidden';
 });
+
+
+document.querySelector('.budgetJs').addEventListener('mouseover', function() {
+    document.querySelector('.budgetJs').innerHTML = '20TL';
+});
+
+document.querySelector('.budgetJs').addEventListener('mouseout', function() {
+    document.querySelector('.budgetJs').innerHTML = 'Budget';
+});

@@ -2,10 +2,13 @@
 <header>
     <div class="colorHome">
         <nav class="imgAndButtons">
-            <a href="/"><img style="width: 175px" class="homeLogo" src="{% static 'images/Logo Name.png' %}"></a>
+                <a href="/"><img style="width: 175px" class="homeLogo" src="{% static 'images/Logo Name.png' %}"></a>
             <div class="rightAlign">
                 {% if user.is_authenticated %}
-                <a class="homeReservation gapBetweenHome buttonsGap" style="color: white" href="/reservation">Reservation</a>
+
+                <div class="headerBackground">
+                    <a class="homeReservation gapBetweenHome buttonsGap " style="color:white" href="/reservation">Reservation</a>
+                </div>
 
                 <div class="dropdownTeam">
                     <a class="gapBetweenHome buttonsGap dropbtnTeam" style="color: white" href="//">Teams</a>
@@ -27,8 +30,13 @@
                     </div>
                 </div>
 
+                <div class="dropdownBudget">
+                    <a class="gapBetweenHome buttonsGap budgetJs" style="color: white" href="">Budget</a>
+                    <div class="dropDownBudgetOut">
+                        <a class="buttonBudget" href="">Bakiye Yukle</a>
+                    </div>
+                </div>
 
-                <a class="homeReservation gapBetweenHome buttonsGap" style="color: white" href="">Budget</a>
 
                 <div class="dropDownLogText">
                     <a class="hover-text gapBetweenHome buttonsGap" style="color: white">{{ user.username }}</a>
@@ -42,6 +50,7 @@
                         onclick="homeLog()">Log In
                 </button>
                 {% endif %}
+
             </div>
         </nav>
 
@@ -67,6 +76,7 @@
                     <button onclick="getLoginForm()"> Login</button>
                 </p>
             </div>
+
         </nav>
         {% endif %}
     </div>
