@@ -7,7 +7,7 @@
                 {% if user.is_authenticated %}
 
                 <div class="headerBackground">
-                    <a class="homeReservation gapBetweenHome buttonsGap " style="color:white" href="/reservation">Reservation</a>
+                    <a class="homeReservation gapBetweenHome buttonsGap " style="color:white" href="/reservation">Fields</a>
                 </div>
 
                 <div class="dropdownTeam">
@@ -15,12 +15,12 @@
                     <div class="dropdown-contentTeam">
                         <div class="columnTeam">
                             <h3>My Teams</h3>
-                            <a href="#">Öğe 4</a>
-                            <a href="#">Öğe 5</a>
+                            <a href="/team/1">Öğe 4</a>
+                            <a href="/team/2">Öğe 5</a>
                             <a href="#">Öğe 6</a>
                             <h3 class="createTeamHover" style="cursor: pointer">Create Team</h3>
                             <div class="oylesine">
-                                <form class="homeForum" method="POST" action="create">
+                                <form class="homeForum" method="POST" action="team/create">
                                     {% csrf_token %}
                                     {{ create_form.as_p }}
                                     <input type="submit" value="Submit" name="create">
@@ -41,6 +41,7 @@
                 <div class="dropDownLogText">
                     <a class="hover-text gapBetweenHome buttonsGap" style="color: white">{{ user.username }}</a>
                     <div class="dropDownLogOut">
+                        <a>{{user.id}}</a>
                         <a class="logout-btn" href="user/logout">Logout</a>
                     </div>
                 </div>
