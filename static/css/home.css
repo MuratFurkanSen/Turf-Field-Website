@@ -22,19 +22,62 @@
 
 }
 
+
 .haliSahaBulmaImg {
-    width: 100%;
+    width: 400px;
+    height: 260px;
     cursor: pointer;
 }
 
+.reservationScroll {
+    width: 400px;
+    height: 260px;
+    padding: 10px;
+    background-color: #00A032;
+    overflow-y: scroll; /* Dikey kaydırmayı aktif eder */
+    overflow-x: hidden;
+    border-radius: 40px;
+    scrollbar-width: none;
+    max-width: 400px;
+}
+
+.voteScreen{
+    display: inline-flex;
+    overflow-x: auto;
+    gap: 10px;
+}
+
+.voteScreen img{
+    cursor: pointer;
+}
+
+/* Her bir öğe için stil */
+.reservationScrollItem {
+    display: inline-flex;
+    background-color: #f44336;
+    margin-bottom: 5px;
+    border-radius: 20px;
+}
+
+.reservationScrollItem img {
+    width: 40%; /* Görüntü genişliği kutuya göre ayarlanır */
+    height: auto; /* Görüntü yüksekliği orantılı olarak ayarlanır */
+    border-radius: 20px; /* Görüntülere hafif bir kenar yuvarlama ekler */
+}
+
+.reservationScrollItem h2 {
+    font-size: 1.2em; /* Başlık boyutu */
+    margin-top: 10px; /* Görüntü ile başlık arasındaki boşluk */
+    word-wrap: break-word;
+}
 
 .mainHomeDiv {
-    margin-bottom: 2%;
-    margin-top: 10%;
-    width: 100%;
+    width: 95%;
+    margin: 2% auto 2% auto;
     height: 30%;
     background-color: green;
     display: inline-flex;
+    border-radius: 70px;
 }
 
 .profileHomeImg {
@@ -66,22 +109,30 @@
     width: 80%;
     height: 80%;
     margin: auto;
-    visibility: hidden;
     position: absolute;
-    background-color: #f1f1f1;
+    visibility: hidden;
+    background-color: green;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     padding: 10px;
     z-index: 1;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
 }
 
 
 .iconPhotoDesign {
     width: 250%;
+    position: relative;
+}
 
+.iconPhotoProfile {
+    position: absolute;
+    width: 120px;
+    height: 160px;
+    left: 120px;
+    top: 70px;
+    cursor: pointer;
 }
 
 .playerCards {
@@ -116,23 +167,87 @@
 }
 
 
-.mainHomeDiv .profilePhotoEdit{
+.mainHomeDiv .profilePhotoEdit {
     display: inline-flex;
 }
 
 .profilePhotoEdit {
     margin-left: 1%;
-    width: 15%;
+    width: 12%;
+    position: relative;
 }
 
 
 .whiteBoard {
-    display: none;
     position: absolute;
     width: 50px;
-    height: 50px;
-    left: 85px;
-    top: 165px;
+    height: 60px;
+    left: 70px;
+    top: 45px;
+    cursor: pointer;
 }
 
 
+.homeCards1 {
+    display: inline-flex;
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    position: absolute;
+    visibility: hidden;
+    background-color: green;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.deneme1 {
+    justify-content: start;
+}
+
+.deneme1, .playerCards {
+    margin-top: 50px;
+}
+
+.iconPhotoDesign1 {
+    width: 250%;
+    position: relative;
+}
+
+.iconPhoto1 {
+    width: 30%;
+    cursor: pointer;
+}
+
+.iconPhotoProfile1 {
+    position: absolute;
+    width: 120px;
+    height: 160px;
+    left: 120px;
+    top: 70px;
+    cursor: pointer;
+}
+
+
+.playerCards1 {
+    margin: 30px;
+    white-space: nowrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 sütun */
+    grid-template-rows: repeat(3, 1fr); /* 3 sütun */
+    gap: 60px;
+    width: 100%;
+    justify-content: end;
+}
+
+.deneme3001 {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.deneme3001 li input{
+}

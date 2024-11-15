@@ -30,4 +30,4 @@ def get_date_options(request):
     return JsonResponse({'date_options': list(map(lambda x : str(x).split('+')[0], date_options))})
 
 def reservation(request):
-    return render(request, 'reservation.html')
+    return render(request, 'fields.html')
