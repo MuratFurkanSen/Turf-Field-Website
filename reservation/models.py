@@ -9,6 +9,7 @@ from django.db import models
 class Reservation(models.Model):
     team = models.ForeignKey(Team, on_delete=models.CASCADE)
     field = models.ForeignKey(Field, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
     reservation_date = models.DateTimeField()
 
     def __str__(self):

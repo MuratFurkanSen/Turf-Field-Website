@@ -1,15 +1,15 @@
-{% extends 'base.html' %}
+
 {% load static %}
 
 {% block content %}
-<form method="POST" action="{{team.id}}/update">
+<form method="POST" action="{{team.id}}/edit_team/add">
     {% csrf_token %}
     {{ update_form.as_p }}
     <input type="submit" value="Submit" name="update">
 </form>
+{{ team.name }}<br>
 {% for member in team.members.all%}
     {{ member.username }}<br>
 {% endfor %}
-<h1>HGH</h1>
 {% endblock %}
 

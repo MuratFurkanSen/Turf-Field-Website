@@ -1,0 +1,23 @@
+{% load static %}
+<form method="POST" action="/reservation/create">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit"/>
+</form>
+<script>
+    document.getElementById("id_fields").addEventListener("change", function() {
+        let field_id = this.value;
+        fetch(`{% url 'get_date_options' %}?field_id=${field_id}`)
+            .then(response => response.json())
+            .then(data => {
+                let optionsField = document.getElementById("id_date_options");
+                optionsField.innerHTML = '';
+                data.date_options.forEach(option => {
+                    let optionElement = document.createElement("option");
+                    optionElement.value = option;
+                    optionElement.textContent = option;
+                    optionsField.appendChild(optionElement);
+                });
+            });
+    });
+</script>

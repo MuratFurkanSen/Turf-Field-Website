@@ -9,8 +9,7 @@ from .models import Team
 # Create your views here.
 def create_team(request):
     if request.method == 'POST':
-        form = TeamCreationForm(request.POST) if "create" in request.POST else TeamUpdateForm(request.POST)
-        print(form.errors)
+        form = TeamCreationForm(request.POST)
         if form.is_valid():
             team = form.save(commit=False)
             team.captain = request.user
@@ -19,16 +18,25 @@ def create_team(request):
             return redirect(f"/team/{team.id}")
 
 
-def edit_team(request, id):
+def edit_team(request, id,op):
     team = Team.objects.get(id=id)
     if request.user != team.captain:
         return HttpResponseForbidden("You are not allowed to edit this team")
     if request.method == 'POST':
-        form = TeamCreationForm(request.POST) if "create" in request.POST else TeamUpdateForm(request.POST)
+        form = TeamUpdateForm(request.POST)
         if form.is_valid():
             team = Team.objects.get(id=id)
-            next_user= User.objects.get(id=form.cleaned_data['id'])
-            team.members.add(next_user)
+            if op == "add":
+                user = User.objects.get(id=form.cleaned_data['id'])
+                team.members.add(user)
+                team.save()
+            elif op == "remove":
+                user = User.objects.get(id=form.cleaned_data['id'])
+                team.members.remove(user)
+                team.save()
+            elif op == "delete":
+                team.delete()
+                return redirect("/")
             return redirect(f"/team/{id}")
 
 def team(request, id):

@@ -18,3 +18,7 @@ def createField(request):
         'form' : form,
     }
     return render(request,'creation.html', context)
+
+
+def fields(request):
+    return render(request,'fields.html')
