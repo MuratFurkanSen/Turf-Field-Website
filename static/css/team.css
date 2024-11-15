@@ -1,0 +1,166 @@
+body {
+    background-color: beige;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.mainTeamDiv {
+    width: 70%;
+    display: flex;
+}
+
+.TeamLeftSide, .teamRightSide {
+    flex: 1; /* Her iki bölümü eşit genişlikte yapar */
+}
+
+.TeamLeftSide {
+    margin-right: 10px;
+    margin-left: 20px;
+}
+
+.teamRightSide {
+    margin-right: 10px;
+}
+
+.inlineAdmin {
+    display: inline-flex;
+    position: relative;
+    gap: 20px;
+    margin-left: 20px;
+}
+
+.toggle-btn {
+    padding: 5px 5px;
+    background-color: green;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.active {
+    background-color: #f44336;
+    padding: 5px 5px;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+.participantJoin {
+    display: inline-flex;
+    position: relative;
+}
+
+.teamAdminPanelDes {
+    width: fit-content;
+    height: fit-content;
+}
+
+
+.participants {
+    padding: 10px;
+    width: 100%;
+    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    position: relative;
+}
+
+
+.participantsProfile {
+    width: fit-content;
+}
+
+
+.teamImgs {
+    border-radius: 20px;
+}
+
+.teamRightSide {
+    width: 30%;
+    height: 100%;
+    right: 0;
+}
+
+
+.mainTeam {
+    display: inline-flex;
+    padding-top: 25px;
+}
+
+.waitingReservation {
+    width: 100%;
+    word-wrap: break-word;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+.paymentTeam {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    position: absolute;
+    z-index: 3;
+}
+
+.paymentMainPart {
+    overflow: auto;
+    position: fixed; /* Sayfanın sabit bir yerinde durması için */
+    top: 50%; /* Yüksekliğin ortası */
+    left: 50%; /* Genişliğin ortası */
+    transform: translate(-50%, -50%); /* Merkezleme */
+    width: 40%; /* Genişlik ayarı */
+    height: 100%;
+    background-color: white;
+    z-index: 10; /* Butonların üzerinde görünmesi için */
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.caixa {
+    width: 30vw; /*60tı */
+    height: 14rem;
+    background: green;
+    border-radius: 40px;
+    margin: 0 auto 60px 20px;
+    display: flex;
+    padding: 1%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.caixa div {
+    min-width: 100px;
+    max-height: 12rem;
+}
+
+.caixa div p {
+    font: bold 2rem sans-serif;
+    color: white;
+}
+
+
+.memberTeam {
+    margin: auto;
+    display: block;
+}
+
+
+

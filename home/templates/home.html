@@ -8,8 +8,8 @@
 <main class="mainHomeDiv">
 
     <div class="profilePhotoEdit">
-        <img class="mainPhoto" src="{% static 'images/fifaiconpng.png' %}" alt="Photo 2">
-        <img class="whiteBoard" src="{% static 'images/whiteBack.png' %}" alt="Photo 2">
+        <img class="mainPhoto" onclick="homecardOpen()" src="{% static 'images/fifaiconpng.png' %}" alt="Photo 2">
+        <img class="whiteBoard" onclick="homecardOpen()" src="{% static 'images/kafkaf.JPG' %}" alt="Photo 2">
     </div>
 
 
@@ -36,10 +36,36 @@
 
 <div class="homeBoxes">
     <div class="haliSahaBulma">
-        <img class="haliSahaBulmaImg" src="{% static 'images/starbucks.png' %}" alt="Photo 2">
+        <div class="reservationScroll">
+            <div class="reservationScrollItem">
+                <img src="{% static 'images/starbucks.png' %}" alt="Photo 2">
+                <h2>Başlık 1</h2>
+            </div>
+            <div class="reservationScrollItem">
+                <img class="" src="{% static 'images/starbucks.png' %}" alt="Photo 2">
+                <h2>Başlık 1</h2>
+            </div>
+            <div class="reservationScrollItem">
+                <img class="" src="{% static 'images/starbucks.png' %}" alt="Photo 2">
+                <h2>Başlık 1</h2>
+            </div>
+            <div class="reservationScrollItem">
+                <img class="" src="{% static 'images/starbucks.png' %}" alt="Photo 2">
+                <h2>Başlık 1</h2>
+            </div>
+        </div>
     </div>
     <div class="haliSahaBulma">
-        <img class="haliSahaBulmaImg" src="{% static 'images/starbucks.png' %}" alt="Photo 2">
+        <div class="reservationScroll">
+            <div class="reservationScrollItem">
+                <div onclick="voteScreen()" class="voteScreen">
+                    <img src="{% static 'images/starbucks.png' %}" alt="Photo 2">
+                    <img src="{% static 'images/starbucks.png' %}" alt="Photo 2">
+                    <img src="{% static 'images/starbucks.png' %}" alt="Photo 2">
+                </div>
+            </div>
+
+        </div>
     </div>
     <div class="haliSahaBulma">
         <img class="haliSahaBulmaImg" src="{% static 'images/starbucks.png' %}" alt="Photo 2">
@@ -53,7 +79,9 @@
 <div class="homeCards">
     <div class="deneme">
         <div class="iconPhotoDesign">
-            <img class="iconPhoto" src="{% static 'images/fifaiconpng.png' %}" alt="Photo 2">
+            <img class="iconPhoto" onclick="homecardClose()" src="{% static 'images/fifaiconpng.png' %}" alt="Photo 2">
+            <img class="iconPhotoProfile" onclick="homecardClose()" src="{% static 'images/kafkaf.JPG' %}"
+                 alt="Photo 2">
         </div>
     </div>
     <div style="margin-top: 60px" class="playerCards">
@@ -218,6 +246,183 @@
                 <div class="deneme300">
                     <li>Aggression</li>
                     <li>10</li>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="homeCards1">
+    <div class="deneme1">
+        <div class="iconPhotoDesign1">
+            <img class="iconPhoto1" onclick="voteScreenClose()" src="{% static 'images/fifaiconpng.png' %}" alt="Photo 2">
+            <img class="iconPhotoProfile1" onclick="voteScreenClose()" src="{% static 'images/kafkaf.JPG' %}"
+                 alt="Photo 2">
+        </div>
+    </div>
+    <div style="margin-top: 60px" class="playerCards1">
+        <div>
+            <div class="deneme3001">
+                <h2>Pace</h2>
+                <h2>10</h2>
+            </div>
+            <ul>
+                <div class="deneme3001">
+                    <li>Acceleration</li>
+                    <li><input type="number" max="20" value="10"></li>
+                </div>
+                <div class="deneme3001">
+                    <li>Sprint Speed</li>
+                    <li><input type="number" max="20" value="10"></li>
+                </div>
+            </ul>
+        </div>
+        <div>
+            <div class="deneme3001">
+                <h2>Shooting</h2>
+                <h2>10</h2>
+            </div>
+            <ul>
+                <div class="deneme3001">
+                    <li>Att. Position</li>
+                    <li><input type="number" max="20" value="10"></li>
+                </div>
+                <div class="deneme3001">
+                    <li>Finishing</li>
+                    <li><input type="number" max="20" value="10"></li>
+                </div>
+                <div class="deneme3001">
+                    <li>Shot Power</li>
+                    <li><input type="number" max="20" value="10"></li>
+                </div>
+                <div class="deneme3001">
+                    <li>Long Shots</li>
+                    <li><input type="number" max="20" value="10"></li>
+                </div>
+                <div class="deneme3001">
+                    <li>Volleys</li>
+                    <li><input type="number" max="20" value="10"></li>
+                </div>
+                <div class="deneme3001">
+                    <li>Penalties</li>
+                    <li><input type="number" max="20" value="10"></li>
+                </div>
+            </ul>
+        </div>
+        <div>
+            <div class="deneme3001">
+                <h2>Passing</h2>
+                <h2>10</h2>
+            </div>
+            <ul>
+                <div class="deneme3001">
+                    <li>Vision</li>
+                    <li><input type="number" max="20" value="10"></li>
+                </div>
+                <div class="deneme3001">
+                    <li>Crossing</li>
+                    <li><input type="number" max="20" value="10"></li>
+                </div>
+                <div class="deneme3001">
+                    <li>FK Acc.</li>
+                    <li><input type="number" max="20" value="10"></li>
+                </div>
+                <div class="deneme3001">
+                    <li>Short Pass</li>
+                    <li><input type="number" max="20" value="10"></li>
+                </div>
+                <div class="deneme3001">
+                    <li>Long Pass</li>
+                    <li><input type="number" max="20" value="10"></li>
+                </div>
+                <div class="deneme3001">
+                    <li>Curve</li>
+                    <li><input type="number" max="20" value="10"></li>
+                </div>
+            </ul>
+        </div>
+        <div>
+            <div class="deneme3001">
+                <h2>Dribbling</h2>
+                <h2>10</h2>
+            </div>
+            <ul>
+                <div class="deneme3001">
+                    <li>Agility</li>
+                    <li><input type="number" max="20" value="10"></li>
+                </div>
+                <div class="deneme3001">
+                    <li>Balance</li>
+                    <li><input type="number" max="20" value="10"></li>
+                </div>
+                <div class="deneme3001">
+                    <li>Reactions</li>
+                    <li><input type="number" max="20" value="10"></li>
+                </div>
+                <div class="deneme3001">
+                    <li>Ball Control</li>
+                    <li><input type="number" max="20" value="10"></li>
+                </div>
+                <div class="deneme3001">
+                    <li>Dribbling</li>
+                    <li><input type="number" max="20" value="10"></li>
+                </div>
+                <div class="deneme3001">
+                    <li>Composure</li>
+                    <li><input type="number" max="20" value="10"></li>
+                </div>
+            </ul>
+        </div>
+        <div>
+            <div class="deneme3001">
+                <h2>Defending</h2>
+                <h2>10</h2>
+            </div>
+            <ul>
+                <div class="deneme3001">
+                    <li>Interceptions</li>
+                    <li><input type="number" max="20" value="10"></li>
+                </div>
+                <div class="deneme3001">
+                    <li>Heading Acc.</li>
+                    <li><input type="number" max="20" value="10"></li>
+                </div>
+                <div class="deneme3001">
+                    <li>Def. Aware</li>
+                    <li><input type="number" max="20" value="10"></li>
+                </div>
+                <div class="deneme3001">
+                    <li>Stand Tackle</li>
+                    <li><input type="number" max="20" value="10"></li>
+                </div>
+                <div class="deneme3001">
+                    <li>Slide Tackle</li>
+                    <li><input type="number" max="20" value="10"></li>
+                </div>
+            </ul>
+        </div>
+        <div>
+            <div class="deneme3001">
+                <h2>Physical</h2>
+                <h2>10</h2>
+            </div>
+            <ul>
+                <div class="deneme3001">
+                    <li>Jumping</li>
+                    <li><input type="number" max="20" value="10"></li>
+                </div>
+                <div class="deneme3001">
+                    <li>Stamina</li>
+                    <li><input type="number" max="20" value="10"></li>
+                </div>
+                <div class="deneme3001">
+                    <li>Strength</li>
+                    <li><input type="number" max="20" value="10"></li>
+                </div>
+                <div class="deneme3001">
+                    <li>Aggression</li>
+                    <li><input type="number" max="20" value="10"></li>
                 </div>
             </ul>
         </div>

@@ -1,17 +1,22 @@
-{
 {% load static %}
 <header>
     <div class="colorHome">
         <nav class="imgAndButtons">
-                <a href="/"><img style="width: 175px" class="homeLogo" src="{% static 'images/Logo Name.png' %}"></a>
+            <a href="/"><img style="width: 175px" class="homeLogo" src="{% static 'images/Logo Name.png' %}"></a>
             <div class="rightAlign">
                 {% if user.is_authenticated %}
 
                 <div class="headerBackground">
-                    <a class="homeReservation gapBetweenHome buttonsGap " style="color:white" href="/reservation">Fields</a>
+                    <a class="homeReservation gapBetweenHome buttonsGap " style="color:white;cursor: pointer;"
+                       onclick="scrollDown()">Reservations</a>
                 </div>
 
-                <div class="dropdownTeam">
+                <div class="headerBackground">
+                    <a class="homeReservation gapBetweenHome buttonsGap " style="color:white"
+                       href="/reservation">Fields</a>
+                </div>
+
+                <div class="dropdownTeam headerBackground">
                     <a class="gapBetweenHome buttonsGap dropbtnTeam" style="color: white" href="//">Teams</a>
                     <div class="dropdown-contentTeam">
                         <div class="columnTeam">
@@ -31,19 +36,20 @@
                     </div>
                 </div>
 
-                <div class="dropdownBudget">
-                    <a class="gapBetweenHome buttonsGap budgetJs" style="color: white" href="">Budget</a>
-                    <div class="dropDownBudgetOut">
-                        <a class="buttonBudget" href="">Bakiye Yukle</a>
-                    </div>
-                </div>
 
-
-                <div class="dropDownLogText">
+                <div class="dropDownLogText headerBackground">
                     <a class="hover-text gapBetweenHome buttonsGap" style="color: white">{{ user.username }}</a>
                     <div class="dropDownLogOut">
-                        <a>{{user.id}}</a>
-                        <a class="logout-btn" href="user/logout">Logout</a>
+                        <a>{{ user.id }}</a>
+                        <div>
+                            <a style="cursor:pointer;">Bakiye Yükle</a>
+                            <img style="width: 10px" src="{% static 'images/kafkaf.JPG' %}" alt="Photo 2">
+                        </div>
+                        <div>
+                            <a class="logout-btn" href="user/logout">Logout</a>
+                            <img style="width: 10px" src="{% static 'images/kafkaf.JPG' %}" alt="Photo 2">
+                        </div>
+
                     </div>
                 </div>
                 {% else %}

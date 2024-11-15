@@ -6,7 +6,9 @@
     <title>Home</title>
     <link rel="stylesheet" href={% static 'css/base.css' %}>
     <link rel="icon" href="{% static 'Website Logo.png' %}" type="image/x-icon">
-    {% block additionalCss %}{% endblock %}
+    {% block additionalCss %}
+    <link rel="stylesheet" href={% static 'css/team.css' %}>
+    {% endblock %}
 </head>
 <body>
 {% include '__particles/__header.html' %}

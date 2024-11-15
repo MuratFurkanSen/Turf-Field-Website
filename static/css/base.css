@@ -16,30 +16,32 @@ html, body {
     height: 100%;
     display: flex;
     flex-direction: column;
+    font-family: serif;
 }
 
 
 /* Optional: Style the body to prevent unnecessary margin and padding */
 body {
+    background-color: beige;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     flex-grow: 1;
-    
+
 }
 
 
 /* ////////////HOME HEADER BODY PART////////////////   */
 .colorHome {
-    position:fixed;
+    position: static;
     background-color: #00A032;
     width: 100%;
     height: 80px;
     align-content: center;
-    box-shadow: 0 0 2px 0 rgba(0, 0, 0, .24), 0 2px 2px 0 rgba(0, 0, 0, .12);
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .3), 0 8px 10px 0 rgba(0, 0, 0, .2);
 }
 
-a{
+a {
     text-decoration: none;
 }
 
@@ -65,7 +67,7 @@ button {
 
 }
 
-.rightAlign a:hover{
+.rightAlign a:hover {
     background-color: darkgreen;
 }
 
@@ -99,16 +101,26 @@ button {
 }
 
 .dropDownLogOut {
-    display: none;
+    top: 69px;
+    visibility: hidden;
+    margin-top: 10px;
+    display: block;
+    text-align: start;
+    white-space: nowrap;
+    overflow: hidden;
+    word-wrap: break-word;
     position: absolute;
+    width: fit-content;
+    max-width: 120px;
+    right: 0;
     background-color: #f1f1f1;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px 0px rgba(0, 0, 0, 0.2);
     padding: 10px;
     z-index: 1;
 }
 
 .dropDownLogText:hover .dropDownLogOut {
-    display: block;
+    visibility: visible;
 }
 
 .logout-btn:hover {
@@ -259,11 +271,13 @@ footer {
 }
 
 
-.homeForum{
+.homeForum {
     display: none;
 }
 
-
+.homeForum{
+    display: none;
+}
 
 .dropdownTeam {
     position: relative;
@@ -280,12 +294,15 @@ footer {
 
 .dropdown-contentTeam {
     background-color: #f1f1f1;
-    padding: 0px;
+    padding: 0;
     display: none;
     position: absolute;
     min-width: 120px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    max-width: 120px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
+    top: 69px;
+    right: 0;
     margin-top: 10px; /* 10px aşağı kaydır */
     white-space: nowrap;
 }
@@ -296,19 +313,15 @@ footer {
 
 .dropdown-contentTeam a {
     color: black;
-    padding: 8px 12px;
     text-decoration: none;
+    padding: 12px 0;
     display: block;
 }
 
 .columnTeam {
     margin: 0;
     padding: 0;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    align-content: center;
-    text-align: center;
+    text-align: start;
 }
 
 .dropdownTeam:hover .dropdown-contentTeam {
@@ -316,13 +329,17 @@ footer {
 }
 
 
+.dropdownTeam:hover .dropdown-contentTeam {
+    display: flex;
+}
 
-.dropdownBudget{
+
+.dropdownBudget {
     position: relative;
     display: inline-block;
 }
 
-.buttonBudget{
+.buttonBudget {
     color: black;
     padding: 8px 12px;
     text-decoration: none;
@@ -330,18 +347,17 @@ footer {
 }
 
 
-.dropDownBudgetOut{
+.dropDownBudgetOut {
     background-color: #f1f1f1;
     padding: 0px;
     display: none;
     position: absolute;
     min-width: 120px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     margin-top: 10px; /* 10px aşağı kaydır */
     white-space: nowrap;
 }
-
 
 
 .dropdownBudget:hover .dropDownBudgetOut {
@@ -349,17 +365,37 @@ footer {
 }
 
 
-
-.headerBackground{
+.headerBackground {
     display: inline-flex;
     width: fit-content;
     height: 100%;
 }
 
 
-.headerBackground:hover{
+.headerBackground:hover {
     background-color: darkgreen;
 }
 
 
+.reservationsPop {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    position: absolute;
+}
+
+.reservationsPopMain {
+    overflow: auto;
+    position: fixed; /* Sayfanın sabit bir yerinde durması için */
+    top: 50%; /* Yüksekliğin ortası */
+    left: 50%; /* Genişliğin ortası */
+    transform: translate(-50%, -50%); /* Merkezleme */
+    width: 40%; /* Genişlik ayarı */
+    height: 100%;
+    background-color: deepskyblue;
+    z-index: 10; /* Butonların üzerinde görünmesi için */
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
 
