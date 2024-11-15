@@ -1,9 +1,12 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: beige;
     display: flex;
     height: 100%;
     margin: 0;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
 }
 
 .photo-grid img {
@@ -14,31 +17,45 @@ body {
 }
 
 .photo-loop {
+    background-color: #00A032;
+    border-radius: 40px;
     display: inline-flex;
     grid-gap: 10px;
 }
 
+.photo-loop img {
+    border-radius: 40px;
+}
+
 .photo-grid {
-    padding-left: 5px;
+    margin-top: 2%;
+    padding-left: 35px;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    grid-gap: 50px;
+    grid-gap: 20px;
     width: 80%;
     max-width: 1000px;
 }
 
 .filter-reservation {
     width: 15%;
-    padding: 0;
-    margin: 0;
+    padding: 10px;
+    margin: 2% 0 0 0;
+    border-radius: 10px;
+    height: fit-content;
+    position: sticky;
+    overflow-y: auto;
+    top: 20px;
+    left: 10px;
     justify-content: left;
     align-items: flex-start;
-    background-color: grey;
+    max-height: 20%;
+    border: solid 1px lightgray;
+    background-color: green;
 }
 
 .abc {
     display: inline-flex;
-    margin-top: 90px;
 }
 
 .dropdown-contentR {
@@ -46,6 +63,7 @@ body {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    flex-grow: 1;
 }
 
 .dropdown-contentR input {
