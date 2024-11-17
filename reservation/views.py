@@ -1,4 +1,3 @@
-from idlelib.query import Query
 
 from django.db.models import QuerySet
 from django.http import JsonResponse
