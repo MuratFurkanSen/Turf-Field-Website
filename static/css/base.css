@@ -41,6 +41,8 @@ body {
     box-shadow: 0 0 6px 0 rgba(0, 0, 0, .3), 0 8px 10px 0 rgba(0, 0, 0, .2);
 }
 
+
+
 a {
     text-decoration: none;
 }
@@ -95,6 +97,10 @@ button {
     margin: 20px;
 }
 
+.homeLog:active {
+    transform: scale(0.98);
+}
+
 
 .hover-text {
     cursor: pointer;
@@ -143,16 +149,19 @@ button {
 
 /* ////////////GENEL LOG IN ////////////////   */
 
+
 .user-container {
     overflow: auto;
-    display: none; /* Gerekirse gösterilecektir */
+    display: none;
     position: fixed; /* Sayfanın sabit bir yerinde durması için */
     top: 50%; /* Yüksekliğin ortası */
     left: 50%; /* Genişliğin ortası */
     transform: translate(-50%, -50%); /* Merkezleme */
-    width: 40%; /* Genişlik ayarı */
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.9); /* Arka plan rengi */
+    width: 50%; /* Genişlik ayarı */
+    height: 80%;
+    border-radius: 40px;
+    background-color: white; /* Arka plan rengi */
+    scrollbar-width: none;
     z-index: 10; /* Butonların üzerinde görünmesi için */
     padding: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -275,9 +284,7 @@ footer {
     display: none;
 }
 
-.homeForum{
-    display: none;
-}
+
 
 .dropdownTeam {
     position: relative;
@@ -398,4 +405,179 @@ footer {
     padding: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
+
+
+.home {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.home::before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease-out;
+}
+
+.home.show::before {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+.form_container {
+    position: absolute;
+    max-width: 320px;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.2);
+    z-index: 101;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease-out;
+}
+
+.home.show .form_container{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+
+.form_close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #0b0217;
+    font-size: 22px;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.form_container h2 {
+    font-size: 22px;
+    color: #0b0217;
+    text-align: center;
+}
+
+.input_box {
+    position: relative;
+    margin-top: 30px;
+    width: 100%;
+    height: 40px;
+}
+
+.input_box input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 0 30px;
+    color: #333;
+    transition: all 0.2s ease;
+    border-bottom: 1.5px solid #aaaaaa;
+}
+
+.input_box input:focus {
+    border-color: #7d2ae8;
+}
+
+.input_box i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #707070
+}
+
+.input_box i.email,
+.input_box i.password {
+    left: 0;
+}
+
+.input_box input:focus ~ i.email,
+.input_box input:focus ~ i.password {
+    color: #7d2ae8;
+}
+
+.input_box i.pw_hide {
+    right: 0;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.option_field {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form_container a {
+    color: #7d2ae8;
+    font-size: 12px;
+}
+
+.form_container a:hover {
+    text-decoration: underline;
+}
+
+.checkbox {
+    display: flex;
+    column-gap: 8px;
+    white-space: nowrap;
+    font-size: 12px;
+}
+
+.checkbox input {
+    accent-color: #7d2ae8;
+}
+
+.checkbox label {
+    font-size: 12px;
+    cursor: pointer;
+    user-select: none;
+    color: #0b0217;
+}
+
+.form_container .button {
+    background: #7d2ae8;
+    margin-top: 30px;
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 10px;
+}
+
+.login_signup {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.signup_form {
+    display: none;
+}
+
+.form_container.active .signup_form {
+    display: block;
+}
+
+.form_container.active .login_form {
+    display: none;
+}
+
 
