@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import FieldCreationForm
+from .models import Field
+
 
 # Create your views here.
 def createField(request):
@@ -21,4 +23,6 @@ def createField(request):
 
 
 def fields(request):
-    return render(request,'fields.html')
+    fields = Field.objects.all()
+    context = {'fields': fields}
+    return render(request,'fields.html', context)

@@ -7,7 +7,7 @@
 <script>
     document.getElementById("id_fields").addEventListener("change", function() {
         let field_id = this.value;
-        fetch(`{% url 'get_date_options' %}?field_id=${field_id}`)
+        fetch(`{% url 'get_reservation_options' %}?field_id=${field_id}`)
             .then(response => response.json())
             .then(data => {
                 let optionsField = document.getElementById("id_date_options");

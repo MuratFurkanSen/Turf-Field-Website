@@ -8,7 +8,6 @@ from user.forms import UserRegistrationForm, UserLoginForm
 def user_register(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
-        print(form.errors)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')

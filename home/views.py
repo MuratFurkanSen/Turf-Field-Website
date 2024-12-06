@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
+from team.models import Team
 from user.forms import UserRegistrationForm, UserLoginForm
 from team.forms import TeamCreationForm
 
@@ -21,8 +22,13 @@ def home(request):
         context['login_form'] = login_form
     return render(request, 'home.html', context)
 
+def header_teams(request):
+    if  request.user.is_authenticated:
+        teams = {'teams': Team.objects.filter(members=request.user)[:3]}
+        return teams
+    return []
+
+
 
 def test(request):
-    instance = DateTimeEntry()
-    instance.create_future_entries()
-    return HttpResponse("Success 7")
+    return render(request, 'abc.html', {})

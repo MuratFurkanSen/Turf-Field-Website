@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block additionalCss %}
-    <link rel="stylesheet" href="{% static 'css/reservation.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fields.css' %}">
 {% endblock %}
 {% block content %}
     <div class="abc">
@@ -36,13 +36,33 @@
         </div>
 
         <div class="photo-grid">
-            {% for k in "123456789" %}
-                <div class="photo-loop">
+            {% for field in fields %}
+                <div class="photo-loop" data-custom-value="{{ field.id }}">
                     <img src="{% static 'images/kafkaf.JPG' %}" alt="Photo 2">
-                    <p>abcabc</p>
+                    <p>{{ field.name }}</p>
                 </div>
             {% endfor %}
         </div>
     </div>
+
+
+{% endblock %}
+{% block additionalScript %}
+    <script>
+        Array.from(document.getElementsByClassName("photo-loop")).forEach(element => {
+            element.addEventListener("click", function () {
+                let field_id = element.getAttribute("data-custom-value");
+                fetch(`{% url 'get_reservation_options' %}?field_id=${field_id}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        data.date_options.forEach(option => {
+                            let optionElement = document.createElement("p");
+                            optionElement.textContent = option;
+                            element.appendChild(optionElement);
+                        });
+                    });
+            });
+        });
+    </script>
 
 {% endblock %}
