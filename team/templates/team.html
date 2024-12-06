@@ -4,199 +4,279 @@
 {% block content %}
 
 <div class="mainTeam">
-    <main class="mainTeamDiv">
-        <div class="TeamLeftSide">
-            <div class="inlineAdmin">
-                <div class="teamAdminPanelDes">
-                    <!--
-                    <img style="width: 120px;margin: auto" class="homeLogo teamImgs" src="{% static 'images/kafkaf.JPG' %}">
-                    <h3 style="text-align: center">{{ user.username }}</h3>
-                    -->
-                </div>
-                <div style="width: fit-content;height: fit-content" class="participantJoin">
-                    <form method="POST" action="{{team.id}}/update">
-                        {% csrf_token %}
-                        <h3>Kullanıcı Id</h3>
-                        {{ update_form.id }}
-                        <input type="submit" value="Ekle" name="update">
-                    </form>
-                </div>
-                <div style="align-self: end">
-                    <button class="toggle-btn" onclick="toggleButton(this)" style="height: fit-content;">Takım 1</button>
-                    <button class="toggle-btn" onclick="toggleButton(this)" style="height:fit-content;">Takım 2</button>
-                </div>
+    <div class="TeamLeftSide">
+        <div class="inlineAdmin">
+            <div class="teamAdminPanelDes">
+                <!--
+                <img style="width: 120px;margin: auto" class="homeLogo teamImgs" src="{% static 'images/kafkaf.JPG' %}">
+                <h3 style="text-align: center">{{ user.username }}</h3>
+                -->
             </div>
-
-            <!--
-            <h2 style="display: flex;justify-content: center;align-items: center;">Takım 1</h2>
-            -->
-            <!--
-            <div class="participants">
-            -->
-            <div style="display: block">
-                <div style="display: inline-flex;justify-content: space-between;gap: 300px;margin-left: 40px;padding-top: 30px">
-                    <h1>Takım 1</h1>
-                    <h1>Takım 2</h1>
-                </div>
+            <div style="width: fit-content;height: fit-content" class="participantJoin">
+                <form method="POST" action="{{team.id}}/update">
+                    {% csrf_token %}
+                    <h3>Kullanıcı Id</h3>
+                    {{ update_form.id }}
+                    <input type="submit" value="Ekle" name="update">
+                </form>
             </div>
-
-            <div style="display: inline-flex">
-                {% for member in team.members.all%}
-                <div class="caixa">
-                    <div style="position: relative" class="memberTeam">
-                        <img style="width: 120px;margin: auto;" class="homeLogo teamImgs"
-                             src="{% static 'images/kafkaf.JPG' %}">
-                        <img style="width: 120px;margin: auto;position: absolute;z-index: 2;left: 0px;top: 20px"
-                             class="homeLogo teamImgs"
-                             src="{% static 'images/ready.PNG' %}">
-                        <h3 style="text-align: center">{{ member.username }}</h3>
-
-                    </div>
-                    <div class="memberTeam">
-                        <img style="width: 120px;margin: auto" class="homeLogo teamImgs"
-                             src="{% static 'images/kafkaf.JPG' %}">
-                        <h3 style="text-align: center">HAZIR!</h3>
-                    </div>
-                    <div class="memberTeam">
-                        <img style="width: 120px;margin: auto" class="homeLogo teamImgs"
-                             src="{% static 'images/kafkaf.JPG' %}">
-                        <h3 style="text-align: center">BEKLENİYOR...</h3>
-                    </div>
-                    <div class="memberTeam">
-                        <img style="width: 120px;margin: auto" class="homeLogo teamImgs"
-                             src="{% static 'images/kafkaf.JPG' %}">
-                        <h3 style="text-align: center">{{ member.username }}</h3>
-                    </div>
-                    <div class="memberTeam">
-                        <img style="width: 120px;margin: auto" class="homeLogo teamImgs"
-                             src="{% static 'images/kafkaf.JPG' %}">
-                        <h3 style="text-align: center">{{ member.username }}</h3>
-                    </div>
-                    <div class="memberTeam">
-                        <img style="width: 120px;margin: auto" class="homeLogo teamImgs"
-                             src="{% static 'images/kafkaf.JPG' %}">
-                        <h3 style="text-align: center">{{ member.username }}</h3>
-                    </div>
-                    <div class="memberTeam">
-                        <img style="width: 120px;margin: auto" class="homeLogo teamImgs"
-                             src="{% static 'images/kafkaf.JPG' %}">
-                        <h3 style="text-align: center">{{ member.username }}</h3>
-                    </div>
-
-                </div>
-
-                <div class="caixa">
-                    <div class="memberTeam">
-                        <img style="width: 120px;margin: auto" class="homeLogo teamImgs"
-                             src="{% static 'images/kafkaf.JPG' %}">
-                        <h3 style="text-align: center">{{ member.username }}</h3>
-                    </div>
-                    <div class="memberTeam">
-                        <img style="width: 120px;margin: auto" class="homeLogo teamImgs"
-                             src="{% static 'images/kafkaf.JPG' %}">
-                        <h3 style="text-align: center">{{ member.username }}</h3>
-                    </div>
-                    <div class="memberTeam">
-                        <img style="width: 120px;margin: auto" class="homeLogo teamImgs"
-                             src="{% static 'images/kafkaf.JPG' %}">
-                        <h3 style="text-align: center">{{ member.username }}</h3>
-                    </div>
-                    <div class="memberTeam">
-                        <img style="width: 120px;margin: auto" class="homeLogo teamImgs"
-                             src="{% static 'images/kafkaf.JPG' %}">
-                        <h3 style="text-align: center">{{ member.username }}</h3>
-                    </div>
-                    <div class="memberTeam">
-                        <img style="width: 120px;margin: auto" class="homeLogo teamImgs"
-                             src="{% static 'images/kafkaf.JPG' %}">
-                        <h3 style="text-align: center">{{ member.username }}</h3>
-                    </div>
-                    <div class="memberTeam">
-                        <img style="width: 120px;margin: auto" class="homeLogo teamImgs"
-                             src="{% static 'images/kafkaf.JPG' %}">
-                        <h3 style="text-align: center">{{ member.username }}</h3>
-                    </div>
-                    <div class="memberTeam">
-                        <img style="width: 120px;margin: auto" class="homeLogo teamImgs"
-                             src="{% static 'images/kafkaf.JPG' %}">
-                        <h3 style="text-align: center">{{ member.username }}</h3>
-                    </div>
-
-                </div>
-
+            <div style="align-self: end">
+                <button class="toggle-btn" onclick="toggleButton(this)" style="height: fit-content;">Takım 1
+                </button>
+                <button class="toggle-btn" onclick="toggleButton(this)" style="height:fit-content;">Takım 2</button>
             </div>
-
-
-            <!--
-            <div class="participantsProfile">
-                <img style="width: 75px;margin: auto" class="homeLogo" src="{% static 'images/kafkaf.JPG' %}">
-                <div style="display: inline-flex;gap: 5px">
-                    <h3 style="">{{ member.username }}</h3>
-                    <h3>TRUE</h3>
-                </div>
-            </div>
-            <div class="participantsProfile">
-                <img style="width: 75px;margin: auto" class="homeLogo" src="{% static 'images/kafkaf.JPG' %}">
-                <h3 style="text-align: center">{{ member.username }}</h3>
-            </div>
-            <div class="participantsProfile">
-                <img style="width: 75px;margin: auto" class="homeLogo" src="{% static 'images/kafkaf.JPG' %}">
-                <h3 style="text-align: center">{{ member.username }}</h3>
-            </div>
-            <div class="participantsProfile">
-                <img style="width: 75px;margin: auto" class="homeLogo" src="{% static 'images/kafkaf.JPG' %}">
-                <h3 style="text-align: center">{{ member.username }}</h3>
-            </div>
-            <div class="participantsProfile">
-                <img style="width: 75px;margin: auto" class="homeLogo" src="{% static 'images/kafkaf.JPG' %}">
-                <h3 style="text-align: center">{{ member.username }}</h3>
-            </div>
-            <div class="participantsProfile">
-                <img style="width: 75px;margin: auto" class="homeLogo" src="{% static 'images/kafkaf.JPG' %}">
-                <h3 style="text-align: center">{{ member.username }}</h3>
-            </div>
-            <div class="participantsProfile">
-                <img style="width: 75px;margin: auto" class="homeLogo" src="{% static 'images/kafkaf.JPG' %}">
-                <h3 style="text-align: center">{{ member.username }}</h3>
-            </div>
-            <div class="participantsProfile">
-                <img style="width: 75px;margin: auto" class="homeLogo" src="{% static 'images/kafkaf.JPG' %}">
-                <h3 style="text-align: center">{{ member.username }}</h3>
-            </div>
-            <div class="participantsProfile">
-                <img style="width: 75px;margin: auto" class="homeLogo" src="{% static 'images/kafkaf.JPG' %}">
-                <h3 style="text-align: center">{{ member.username }}</h3>
-            </div>
-            <div class="participantsProfile">
-                <img style="width: 75px;margin: auto" class="homeLogo" src="{% static 'images/kafkaf.JPG' %}">
-                <h3 style="text-align: center">{{ member.username }}</h3>
-            </div>
-            <div class="participantsProfile">
-                <img style="width: 75px;margin: auto" class="homeLogo" src="{% static 'images/kafkaf.JPG' %}">
-                <h3 style="text-align: center">{{ member.username }}</h3>
-            </div>
-            <div class="participantsProfile">
-                <img style="width: 75px;margin: auto" class="homeLogo" src="{% static 'images/kafkaf.JPG' %}">
-                <h3 style="text-align: center">{{ member.username }}</h3>
-            </div>
-            <div class="participantsProfile">
-                <img style="width: 75px;margin: auto" class="homeLogo" src="{% static 'images/kafkaf.JPG' %}">
-                <h3 style="text-align: center">{{ member.username }}</h3>
-            </div>
-            <div class="participantsProfile">
-                <img style="width: 75px;margin: auto" class="homeLogo" src="{% static 'images/kafkaf.JPG' %}">
-                <h3 style="text-align: center">{{ member.username }}</h3>
-            </div>
-
-            -->
-            {% endfor %}
         </div>
 
         <!--
-        </div>
+        <h2 style="display: flex;justify-content: center;align-items: center;">Takım 1</h2>
         -->
-    </main>
+        <!--
+        <div class="participants">
+        -->
+
+
+        <div class="container swiper">
+            <div class="slider-wrapper">
+                <div class="card-list swiper-wrapper">
+                    <div class="card-item swiper-slide">
+                        <img class="user-image" src="{% static 'images/kafkaf.JPG' %}">
+                        <h2 class="user-name">Kafkaf</h2>
+                        <p class="user-profession">Software</p>
+                        <button class="message-button">Kaldır</button>
+                    </div>
+
+
+                    <div class="card-item swiper-slide">
+                        <img class="user-image" src="{% static 'images/kafkaf.JPG' %}">
+                        <h2 class="user-name">Kafkaf</h2>
+                        <p class="user-profession">Software</p>
+                        <button class="message-button">Message</button>
+                    </div>
+
+                    <div class="card-item swiper-slide">
+                        <img class="user-image" src="{% static 'images/kafkaf.JPG' %}">
+                        <h2 class="user-name">Kafkaf</h2>
+                        <p class="user-profession">Software</p>
+                        <button class="message-button">Message</button>
+                    </div>
+
+                    <div class="card-item swiper-slide">
+                        <img class="user-image" src="{% static 'images/kafkaf.JPG' %}">
+                        <h2 class="user-name">Kafkaf</h2>
+                        <p class="user-profession">Software</p>
+                        <button class="message-button">Message</button>
+                    </div>
+
+                    <div class="card-item swiper-slide">
+                        <img class="user-image" src="{% static 'images/kafkaf.JPG' %}">
+                        <h2 class="user-name">Kafkaf</h2>
+                        <p class="user-profession">Software</p>
+                        <button class="message-button">Message</button>
+                    </div>
+
+                    <div class="card-item swiper-slide">
+                        <img class="user-image" src="{% static 'images/kafkaf.JPG' %}">
+                        <h2 class="user-name">Kafkaf</h2>
+                        <p class="user-profession">Software</p>
+                        <button class="message-button">Message</button>
+                    </div>
+
+                    <div class="card-item swiper-slide">
+                        <img class="user-image" src="{% static 'images/kafkaf.JPG' %}">
+                        <h2 class="user-name">Kafkaf</h2>
+                        <p class="user-profession">Software</p>
+                        <button class="message-button">Message</button>
+                    </div>
+
+                    <div class="card-item swiper-slide">
+                        <img class="user-image" src="{% static 'images/kafkaf.JPG' %}">
+                        <h2 class="user-name">Kafkaf</h2>
+                        <p class="user-profession">Software</p>
+                        <button class="message-button">Message</button>
+                    </div>
+
+
+                </div>
+                <div class="swiper-slide-buttons swiper-pagination"></div>
+                <div class="swiper-slide-buttons swiper-button-prev"></div>
+                <div class="swiper-slide-buttons swiper-button-next"></div>
+
+
+            </div>
+        </div>
+
+
+        <!--
+                    <div style="display: inline-flex">
+                        {% for member in team.members.all%}
+                        <div class="caixa">
+                            <div style="position: relative" class="memberTeam">
+                                <img style="width: 120px;margin: auto;" class="homeLogo teamImgs"
+                                     src="{% static 'images/kafkaf.JPG' %}">
+                                <img style="width: 120px;margin: auto;position: absolute;z-index: 2;left: 0px;top: 20px"
+                                     class="homeLogo teamImgs"
+                                     src="{% static 'images/ready.PNG' %}">
+                                <h3 style="text-align: center">{{ member.username }}</h3>
+
+                            </div>
+                            <div class="memberTeam">
+                                <img style="width: 120px;margin: auto" class="homeLogo teamImgs"
+                                     src="{% static 'images/kafkaf.JPG' %}">
+                                <h3 style="text-align: center">HAZIR!</h3>
+                            </div>
+                            <div class="memberTeam">
+                                <img style="width: 120px;margin: auto" class="homeLogo teamImgs"
+                                     src="{% static 'images/kafkaf.JPG' %}">
+                                <h3 style="text-align: center">BEKLENİYOR...</h3>
+                            </div>
+                            <div class="memberTeam">
+                                <img style="width: 120px;margin: auto" class="homeLogo teamImgs"
+                                     src="{% static 'images/kafkaf.JPG' %}">
+                                <h3 style="text-align: center">{{ member.username }}</h3>
+                            </div>
+                            <div class="memberTeam">
+                                <img style="width: 120px;margin: auto" class="homeLogo teamImgs"
+                                     src="{% static 'images/kafkaf.JPG' %}">
+                                <h3 style="text-align: center">{{ member.username }}</h3>
+                            </div>
+                            <div class="memberTeam">
+                                <img style="width: 120px;margin: auto" class="homeLogo teamImgs"
+                                     src="{% static 'images/kafkaf.JPG' %}">
+                                <h3 style="text-align: center">{{ member.username }}</h3>
+                            </div>
+                            <div class="memberTeam">
+                                <img style="width: 120px;margin: auto" class="homeLogo teamImgs"
+                                     src="{% static 'images/kafkaf.JPG' %}">
+                                <h3 style="text-align: center">{{ member.username }}</h3>
+                            </div>
+
+                        </div>
+
+                        <div class="caixa">
+                            <div class="memberTeam">
+                                <img style="width: 120px;margin: auto" class="homeLogo teamImgs"
+                                     src="{% static 'images/kafkaf.JPG' %}">
+                                <h3 style="text-align: center">{{ member.username }}</h3>
+                            </div>
+                            <div class="memberTeam">
+                                <img style="width: 120px;margin: auto" class="homeLogo teamImgs"
+                                     src="{% static 'images/kafkaf.JPG' %}">
+                                <h3 style="text-align: center">{{ member.username }}</h3>
+                            </div>
+                            <div class="memberTeam">
+                                <img style="width: 120px;margin: auto" class="homeLogo teamImgs"
+                                     src="{% static 'images/kafkaf.JPG' %}">
+                                <h3 style="text-align: center">{{ member.username }}</h3>
+                            </div>
+                            <div class="memberTeam">
+                                <img style="width: 120px;margin: auto" class="homeLogo teamImgs"
+                                     src="{% static 'images/kafkaf.JPG' %}">
+                                <h3 style="text-align: center">{{ member.username }}</h3>
+                            </div>
+                            <div class="memberTeam">
+                                <img style="width: 120px;margin: auto" class="homeLogo teamImgs"
+                                     src="{% static 'images/kafkaf.JPG' %}">
+                                <h3 style="text-align: center">{{ member.username }}</h3>
+                            </div>
+                            <div class="memberTeam">
+                                <img style="width: 120px;margin: auto" class="homeLogo teamImgs"
+                                     src="{% static 'images/kafkaf.JPG' %}">
+                                <h3 style="text-align: center">{{ member.username }}</h3>
+                            </div>
+                            <div class="memberTeam">
+                                <img style="width: 120px;margin: auto" class="homeLogo teamImgs"
+                                     src="{% static 'images/kafkaf.JPG' %}">
+                                <h3 style="text-align: center">{{ member.username }}</h3>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+        -->
+        <!--
+        <div class="participantsProfile">
+            <img style="width: 75px;margin: auto" class="homeLogo" src="{% static 'images/kafkaf.JPG' %}">
+            <div style="display: inline-flex;gap: 5px">
+                <h3 style="">{{ member.username }}</h3>
+                <h3>TRUE</h3>
+            </div>
+        </div>
+        <div class="participantsProfile">
+            <img style="width: 75px;margin: auto" class="homeLogo" src="{% static 'images/kafkaf.JPG' %}">
+            <h3 style="text-align: center">{{ member.username }}</h3>
+        </div>
+        <div class="participantsProfile">
+            <img style="width: 75px;margin: auto" class="homeLogo" src="{% static 'images/kafkaf.JPG' %}">
+            <h3 style="text-align: center">{{ member.username }}</h3>
+        </div>
+        <div class="participantsProfile">
+            <img style="width: 75px;margin: auto" class="homeLogo" src="{% static 'images/kafkaf.JPG' %}">
+            <h3 style="text-align: center">{{ member.username }}</h3>
+        </div>
+        <div class="participantsProfile">
+            <img style="width: 75px;margin: auto" class="homeLogo" src="{% static 'images/kafkaf.JPG' %}">
+            <h3 style="text-align: center">{{ member.username }}</h3>
+        </div>
+        <div class="participantsProfile">
+            <img style="width: 75px;margin: auto" class="homeLogo" src="{% static 'images/kafkaf.JPG' %}">
+            <h3 style="text-align: center">{{ member.username }}</h3>
+        </div>
+        <div class="participantsProfile">
+            <img style="width: 75px;margin: auto" class="homeLogo" src="{% static 'images/kafkaf.JPG' %}">
+            <h3 style="text-align: center">{{ member.username }}</h3>
+        </div>
+        <div class="participantsProfile">
+            <img style="width: 75px;margin: auto" class="homeLogo" src="{% static 'images/kafkaf.JPG' %}">
+            <h3 style="text-align: center">{{ member.username }}</h3>
+        </div>
+        <div class="participantsProfile">
+            <img style="width: 75px;margin: auto" class="homeLogo" src="{% static 'images/kafkaf.JPG' %}">
+            <h3 style="text-align: center">{{ member.username }}</h3>
+        </div>
+        <div class="participantsProfile">
+            <img style="width: 75px;margin: auto" class="homeLogo" src="{% static 'images/kafkaf.JPG' %}">
+            <h3 style="text-align: center">{{ member.username }}</h3>
+        </div>
+        <div class="participantsProfile">
+            <img style="width: 75px;margin: auto" class="homeLogo" src="{% static 'images/kafkaf.JPG' %}">
+            <h3 style="text-align: center">{{ member.username }}</h3>
+        </div>
+        <div class="participantsProfile">
+            <img style="width: 75px;margin: auto" class="homeLogo" src="{% static 'images/kafkaf.JPG' %}">
+            <h3 style="text-align: center">{{ member.username }}</h3>
+        </div>
+        <div class="participantsProfile">
+            <img style="width: 75px;margin: auto" class="homeLogo" src="{% static 'images/kafkaf.JPG' %}">
+            <h3 style="text-align: center">{{ member.username }}</h3>
+        </div>
+        <div class="participantsProfile">
+            <img style="width: 75px;margin: auto" class="homeLogo" src="{% static 'images/kafkaf.JPG' %}">
+            <h3 style="text-align: center">{{ member.username }}</h3>
+        </div>
+
+        -->
+        {% endfor %}
+    </div>
+
+    <!--
+    </div>
+    -->
     <div class="teamRightSide">
+        <div class="pitch1">
+            <img style="width:70%;float: left" src="{% static 'images/pitch.jpeg' %}">
+            <div class="pitch2">
+                <button class="playerButton">1</button>
+                <button class="playerButton">1</button>
+                <button class="playerButton">1</button>
+                <button class="playerButton">1</button>
+                <button class="playerButton">1</button>
+                <button class="playerButton">1</button>
+            </div>
+        </div>
+
+
+        <!--
         <h2>Bekleyen Rezervasyonlar:</h2>
         <div style="background-color:green;" class="waitingReservation">
             <h2>Img</h2>
@@ -204,6 +284,7 @@
             <h2 class="waitingReservationOnClick" style="cursor: pointer" onclick="waitingReservationOnClick()">
                 Payment</h2>
         </div>
+        -->
     </div>
 </div>
 
@@ -218,4 +299,5 @@
 
 
 {% endblock %}
+
 

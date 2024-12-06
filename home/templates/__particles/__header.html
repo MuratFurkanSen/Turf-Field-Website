@@ -24,14 +24,12 @@
                             <a href="/team/1">Öğe 4</a>
                             <a href="/team/2">Öğe 5</a>
                             <a href="#">Öğe 6</a>
-                            <h3 class="createTeamHover" style="cursor: pointer">Create Team</h3>
-                            <div class="oylesine">
+                            <h3 onclick="createTeamButton()" class="createTeamHover" style="cursor: pointer">Create Team</h3>
                                 <form class="homeForum" method="POST" action="team/create">
                                     {% csrf_token %}
                                     {{ create_form.as_p }}
                                     <input type="submit" value="Submit" name="create">
                                 </form>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -54,8 +52,9 @@
                 </div>
                 {% else %}
                 <a class="homeReservation gapBetweenHome" style="color: white" href="//">Halı Sahalar</a>
-                <button class="homeLog" style="width: fit-content; height: fit-content; color: white"
-                        onclick="homeLog()">Log In
+                <button onclick="loginOpen()" class="homeLog" id="form-open"
+                        style="width: fit-content; height: fit-content;padding: 10px;border-radius: 10px; color: black;border: none;"
+                >Log In
                 </button>
                 {% endif %}
 
@@ -63,6 +62,80 @@
         </nav>
 
         {% if not user.is_authenticated %}
+        <!-- home -->
+        <section class="home">
+            <div class="form_container">
+                <i class="uil uil-times form_close" onclick="loginClose()"></i>
+                <!-- login form -->
+                <div class="form login_form">
+                    <form action="/user/login" method="POST">
+                        {%csrf_token %}
+                        <h2>Login</h2>
+
+                        <div class="input_box">
+                            {{login_form.username}}
+                            <i class="uil uil-envelope-alt email"></i>
+                        </div>
+
+                        <div class="input_box">
+                            {{login_form.password}}
+                            <i class="uil uil-lock password"></i>
+                            <i class="uil uil-eye-slash pw_hide"></i>
+                        </div>
+
+                        <div class="option_field">
+                            <span class="checkbox">
+                                <input type="checkbox" id="check">
+                                <label for="check">Remember Me</label>/
+                            </span>
+                            <a href="#" class="forgot_pw">Forgot Password?</a>
+                        </div>
+
+                        <button class="button">Login Now</button>
+
+                        <div class="login_signup">
+                            Don't have an account? <a onclick="handleLogin(event)" href="#" id="login">Signup</a>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Sign up -->
+
+                <div class="form signup_form">
+                    <form action="#">
+                        <h2>Signup</h2>
+
+                        <div class="input_box">
+                            <input type="email" placeholder="Enter your email address" required/>
+                            <i class="uil uil-envelope-alt email"></i>
+                        </div>
+
+                        <div class="input_box">
+                            <input type="password" placeholder="Create password" required/>
+                            <i class="uil uil-lock password"></i>
+                            <i class="uil uil-eye-slash pw_hide"></i>
+                        </div>
+
+                        <div class="input_box">
+                            <input type="password" placeholder="Confirm password" required/>
+                            <i class="uil uil-lock password"></i>
+                            <i class="uil uil-eye-slash pw_hide"></i>
+                        </div>
+
+                        <button class="button">Signup Now</button>
+
+                        <div class="login_signup">
+                            Already have an account? <a onclick="handleSignup(event)" href="#" id="signup">Login</a>
+                        </div>
+                    </form>
+                </div>
+
+
+            </div>
+        </section>
+
+
+        <!--
         <nav class="user-container">
             <h2 class="closeLog" style="cursor: pointer; margin-left: 95%" onclick="xButtonCloseLogHome()">X</h2>
             <div id="loginForm" style="display: none">
@@ -86,7 +159,9 @@
             </div>
 
         </nav>
+        -->
         {% endif %}
     </div>
 </header>
+
 
