@@ -43,9 +43,9 @@ def edit_team(request, id, op):
 
 
 def team(request, id):
-    team = Team.objects.get(id=id)
-    if request.user not in team.members.all():
+    teams = Team.objects.get(id=id)
+    if request.user not in teams.members.all():
         return HttpResponseForbidden("You are not a member of this team")
     create_form = TeamCreationForm()
-    context = {'create_form': create_form, 'id': id, 'team': team}
+    context = {'create_form': create_form, 'id': id, 'teams': teams}
     return render(request, 'team.html', context)
