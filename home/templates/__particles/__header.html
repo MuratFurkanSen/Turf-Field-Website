@@ -22,7 +22,7 @@
                         <div class="dropdown-contentTeam">
                             <div class="columnTeam">
                                 <h3>My Teams</h3>
-                                {% for team in teams %}
+                                {% for team in teams.all %}
                                     <a href="/team/{{ team.id }}">{{ team.name }} </a>
                                 {% endfor %}
 
