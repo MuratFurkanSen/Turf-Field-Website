@@ -1,9 +1,6 @@
 from datetime import datetime
-from idlelib.query import Query
-from urllib.error import HTTPError
 
 from django.contrib.auth.decorators import login_required
-from django.db.models import QuerySet
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect
 
