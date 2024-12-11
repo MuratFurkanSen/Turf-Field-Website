@@ -38,7 +38,7 @@ body {
 .denemeli{
     max-height: 800px;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 0px;
     transition: all 0.3s ease;
     cursor: pointer;
     background-color: #00A032;
