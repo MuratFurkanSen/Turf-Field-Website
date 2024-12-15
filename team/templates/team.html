@@ -1,145 +1,66 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% block additionalScript %}
+    <script src="{% static 'js/team.js' %}"></script>{% endblock %}
 {% block content %}
 
-<div class="mainTeam">
-    <div class="TeamLeftSide">
-        <div class="inlineAdmin">
-            <div class="teamAdminPanelDes">
-                <!--
-                <img style="width: 120px;margin: auto" class="homeLogo teamImgs" src="{% static 'images/kafkaf.JPG' %}">
-                <h3 style="text-align: center">{{ user.username }}</h3>
-                -->
-            </div>
-            <div style="width: fit-content;height: fit-content" class="participantJoin">
-                <form method="POST" action="{{team.id}}/update">
-                    {% csrf_token %}
-                    <h3>Kullanıcı Id</h3>
-                    {{ update_form.id }}
-                    <input type="submit" value=" " name="update">
-                </form>
-            </div>
-            <div style="align-self: end">
-                <button class="toggle-btn" onclick="toggleButton(this)" style="height: fit-content;">Takım 1
-                </button>
-                <button class="toggle-btn" onclick="toggleButton(this)" style="height:fit-content;">Takım 2</button>
-            </div>
-        </div>
-
-        <!--
-        <h2 style="display: flex;justify-content: center;align-items: center;">Takım 1</h2>
-        -->
-        <!--
-        <div class="participants">
-        -->
-
-
-        <div class="container swiper">
-            <div class="slider-wrapper">
-                <div class="card-list swiper-wrapper">
-                    <div class="card-item swiper-slide">
-                        <img class="user-image" src="{% static 'images/kafkaf.JPG' %}">
-                        <h2 class="user-name">Kafkaf</h2>
-                        <p class="user-profession">Software</p>
-                        <button class="message-button">Kaldır</button>
-                    </div>
-
-
-                    <div class="card-item swiper-slide">
-                        <img class="user-image" src="{% static 'images/kafkaf.JPG' %}">
-                        <h2 class="user-name">Kafkaf</h2>
-                        <p class="user-profession">Software</p>
-                        <button class="message-button">Message</button>
-                    </div>
-
-                    <div class="card-item swiper-slide">
-                        <img class="user-image" src="{% static 'images/kafkaf.JPG' %}">
-                        <h2 class="user-name">Kafkaf</h2>
-                        <p class="user-profession">Software</p>
-                        <button class="message-button">Message</button>
-                    </div>
-
-                    <div class="card-item swiper-slide">
-                        <img class="user-image" src="{% static 'images/kafkaf.JPG' %}">
-                        <h2 class="user-name">Kafkaf</h2>
-                        <p class="user-profession">Software</p>
-                        <button class="message-button">Message</button>
-                    </div>
-
-                    <div class="card-item swiper-slide">
-                        <img class="user-image" src="{% static 'images/kafkaf.JPG' %}">
-                        <h2 class="user-name">Kafkaf</h2>
-                        <p class="user-profession">Software</p>
-                        <button class="message-button">Message</button>
-                    </div>
-
-                    <div class="card-item swiper-slide">
-                        <img class="user-image" src="{% static 'images/kafkaf.JPG' %}">
-                        <h2 class="user-name">Kafkaf</h2>
-                        <p class="user-profession">Software</p>
-                        <button class="message-button">Message</button>
-                    </div>
-
-                    <div class="card-item swiper-slide">
-                        <img class="user-image" src="{% static 'images/kafkaf.JPG' %}">
-                        <h2 class="user-name">Kafkaf</h2>
-                        <p class="user-profession">Software</p>
-                        <button class="message-button">Message</button>
-                    </div>
-
-                    <div class="card-item swiper-slide">
-                        <img class="user-image" src="{% static 'images/kafkaf.JPG' %}">
-                        <h2 class="user-name">Kafkaf</h2>
-                        <p class="user-profession">Software</p>
-                        <button class="message-button">Message</button>
-                    </div>
-
+    <div class="mainTeam">
+        <div class="TeamLeftSide">
+            <div class="inlineAdmin">
+                <div style="width: fit-content;height: fit-content" class="participantJoin">
+                    <input id="userIdInput" type="number" value="Add Member">
+                    <button class="message-button" onclick="addMember({{ team.id }})">Add Member</button>
                 </div>
-                <div class="swiper-slide-buttons swiper-pagination"></div>
-                <div class="swiper-slide-buttons swiper-button-prev"></div>
-                <div class="swiper-slide-buttons swiper-button-next"></div>
+                <div style="align-self: end">
+                    <button class="toggle-btn" onclick="toggleButton(this)" style="height: fit-content;">Takım 1
+                    </button>
+                    <button class="toggle-btn" onclick="toggleButton(this)" style="height:fit-content;">Takım 2</button>
+                </div>
+            </div>
+
+            <div class="container swiper">
+                <div class="slider-wrapper">
+                    <div class="card-list swiper-wrapper">
+                        {% for member in team.members.all %}
+                            <div class="card-item swiper-slide" data-member_id="{{ member.id }}">
+                                <img class="user-image" src="{% static 'images/kafkaf.JPG' %}" alt="member-image">
+                                <h2 class="user-name">{{ member.profile.full_name }} </h2>
+                                <p class="user-profession">{{ member.profile.position }}</p>
+                                <a class="message-button"
+                                   href="{{ team.id }}/edit_team/remove/{{ member.id }}">Remove</a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="swiper-slide-buttons swiper-pagination"></div>
+                    <div class="swiper-slide-buttons swiper-button-prev"></div>
+                    <div class="swiper-slide-buttons swiper-button-next"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="teamRightSide">
+            <div class="pitch1">
+                <img style="width:70%;float: left" src="{% static 'images/pitch.jpeg' %}">
+                <div class="pitch2">
+                    <button class="playerButton">1</button>
+                    <button class="playerButton">1</button>
+                    <button class="playerButton">1</button>
+                    <button class="playerButton">1</button>
+                    <button class="playerButton">1</button>
+                    <button class="playerButton">1</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <!--
-    </div>
-    -->
-    <div class="teamRightSide">
-        <div class="pitch1">
-            <img style="width:70%;float: left" src="{% static 'images/pitch.jpeg' %}">
-            <div class="pitch2">
-                <button class="playerButton">1</button>
-                <button class="playerButton">1</button>
-                <button class="playerButton">1</button>
-                <button class="playerButton">1</button>
-                <button class="playerButton">1</button>
-                <button class="playerButton">1</button>
-            </div>
+
+    <div class="paymentTeam">
+        <div class="paymentMainPart">
+            <h1 onclick="xButtonClosePayment()" style="text-align: end;margin-right: 15px;cursor: pointer">X</h1>
+            <h1>Ödeme sayfası</h1>
         </div>
 
-
-        <!--
-        <h2>Bekleyen Rezervasyonlar:</h2>
-        <div style="background-color:green;" class="waitingReservation">
-            <h2>Img</h2>
-            <h2>Details sadsadsadssadassadasdsadasdasdasdasdas</h2>
-            <h2 class="waitingReservationOnClick" style="cursor: pointer" onclick="waitingReservationOnClick()">
-                Payment</h2>
-        </div>
-        -->
     </div>
-</div>
-
-
-<div class="paymentTeam">
-    <div class="paymentMainPart">
-        <h1 onclick="xButtonClosePayment()" style="text-align: end;margin-right: 15px;cursor: pointer">X</h1>
-        <h1>Ödeme sayfası</h1>
-    </div>
-
-</div>
 
 
 {% endblock %}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accept or Deny</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        .container {
+            display: flex;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .info {
+            margin-right: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 200px;
+        }
+        .info h2 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            color: #333;
+        }
+        .info p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button.accept {
+            background-color: #4CAF50;
+            color: white;
+        }
+        button.accept:hover {
+            background-color: #45a049;
+        }
+        button.deny {
+            background-color: #f44336;
+            color: white;
+        }
+        button.deny:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+
+<p>Friend Request></p>
+{% for invite in friend_invites %}
+    <div class="container">
+        <div class="info">
+            <h2>{{ invite.sender_user }}</h2>
+            <p>Could we be friends pls? :)</p>
+        </div>
+
+        <div class="buttons">
+            <a class="accept" href="/user/add_friend/{{ invite.id }}">Accept</a>
+            <a class="deny" href="/user/decline_friend/{{ invite.id }}">Deny</a>
+        </div>
+    </div>
+{% endfor %}
+
+<p>Team Request</p>
+{% for invite in team_invites %}
+    <div class="container">
+        <div class="info">
+            <h2>{{ invite.team.name }}</h2>
+            <p>We Want U in our Team.</p>
+        </div>
+
+        <div class="buttons">
+            <a class="accept" href="/user/add_team/{{ invite.id }}">Accept</a>
+            <a class="deny" href="/user/decline_team/{{ invite.id }}">Deny</a>
+        </div>
+    </div>
+{% endfor %}
+
+    <script>
+        function handleAccept() {
+            alert("You have accepted the terms.");
+        }
+
+        function handleDeny() {
+            alert("You have denied the terms.");
+        }
+    </script>
+</body>
+</html>

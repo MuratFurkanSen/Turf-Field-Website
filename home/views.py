@@ -1,10 +1,6 @@
-from dataclasses import field
-from datetime import datetime
+from django.shortcuts import render
 
-from django.contrib.auth import authenticate, login
-from django.http import HttpResponse
-from django.shortcuts import render, redirect
-
+from reservation.models import Reservation
 from team.models import Team
 from user.forms import UserRegistrationForm, UserLoginForm
 from team.forms import TeamCreationForm
@@ -20,6 +16,11 @@ def home(request):
         login_form = UserLoginForm()
         context['register_form'] = register_form
         context['login_form'] = login_form
+    if request.user.is_authenticated:
+        user_teams = Team.objects.filter(members=request.user)
+        reservations = Reservation.objects.filter(team__in=user_teams)
+        context['reservations'] = reservations
+        context['all_teams'] = user_teams
     return render(request, 'home.html', context)
 
 def header_teams(request):
@@ -29,6 +30,5 @@ def header_teams(request):
     return []
 
 
-
 def test(request):
-    return render(request, 'abc.html', {})
+    return render(request, 'invites.html', {})
