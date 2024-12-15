@@ -2,6 +2,10 @@
 {% load static %}
 {% block additionalCss %}
 <link rel="stylesheet" href="{% static 'css/fields.css' %}">
+<link rel="stylesheet" href="{% static 'css/calendar.css' %}">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<script src="{% static 'js/calendar.js' %}" defer></script>
 {% endblock %}
 {% block content %}
 <div class="abc">
@@ -38,23 +42,33 @@
 
     <div class="photo-grid">
         {% for field in fields %}
-        <div class="denemeli" onclick="toggleDetails(this)" data-custom-value="{{ field.id }}">
+        <div class="denemeli" data-custom-value="{{ field.id }}">
             <div class="photo-loop">
                 <img style="cursor:pointer;" src="{% static 'images/kafkaf.JPG' %}" alt="Photo 2">
+                <button onclick="toggleDetails(this)">abc</button>
                 <p>{{ field.name }}</p>
             </div>
             <div class="ticket-details">
-                <p>Anan</p>
+                <div>
+                    {% include 'calendar.html' %}
+                </div>
+                <div style="height: 400px;background-color: green">
+                    <div id="Anan">
+
+                    </div>
+                </div>
+
             </div>
         </div>
-
         {% endfor %}
     </div>
 </div>
 
 <script>
     function toggleDetails(ticketElement) {
-        ticketElement.classList.toggle('expanded');
+        const parentDiv = ticketElement.closest('.denemeli');
+        parentDiv.classList.toggle('expanded');
+
     }
 
 </script>

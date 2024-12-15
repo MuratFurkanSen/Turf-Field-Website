@@ -17,3 +17,5 @@ function filterCities() {
 function selectCity(city) {
     document.getElementById('selected-city').innerText = city;
 }
+
+
