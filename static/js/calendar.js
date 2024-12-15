@@ -1,5 +1,5 @@
-const daysTag = document.querySelector(".days"),
-    currentDate = document.querySelector(".current-date"),
+const daysTags = document.querySelectorAll(".days"),
+    currentDates = document.querySelectorAll(".current-date"),
     prevNextIcon = document.querySelectorAll(".icons span");
 
 // getting new date, current year and month
@@ -11,7 +11,7 @@ let date = new Date(),
 const months = ["January", "February", "March", "April", "May", "June", "July",
     "August", "September", "October", "November", "December"];
 
-const renderCalendar = () => {
+const renderCalendar = (daysTag, currentDate) => {
     let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(), // getting first day of month
         lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(), // getting last date of month
         lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(), // getting last day of month
@@ -25,6 +25,7 @@ const renderCalendar = () => {
         // adding active class to li if the current day, month, and year matched
         let isToday = i === date.getDate() && currMonth === new Date().getMonth()
         && currYear === new Date().getFullYear() ? "selected" : "";
+
         liTag += `<li class="active ${isToday}" data-title="${i}">${i}</li>`;
     }
 
@@ -37,18 +38,23 @@ const renderCalendar = () => {
     daysTag.innerHTML = liTag;
     Array.from(daysTag.getElementsByClassName("active")).forEach((item) => {
         item.addEventListener("click", () => {
+            Array.from(daysTag.getElementsByClassName("active")).forEach((item) => {
+                item.classList.remove("selected");
+            });
+            item.classList.add("selected");
+
             let field_id = 2;
-            fetch(`/reservation/get_reservation_options?field_id=${field_id}&selected_date=${currYear}-${currMonth+1}-${item.innerText}`)
+            fetch(`/reservation/get_reservation_options?field_id=${field_id}&selected_date=${currYear}-${currMonth + 1}-${item.innerText}`)
                 .then(response => response.json())
                 .then(data => {
-                    let parent = document.getElementById("Anan")
+                    let parent = item.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector("#Anan");
                     let team_id = "14";
                     parent.innerHTML = "";
                     data.date_options.forEach((hour) => {
                         let new_button = document.createElement("button");
-                        new_button.textContent = `${hour}:00-${Number(hour)+1 === 24?"00":String(Number(hour)+1)}:00`;
+                        new_button.textContent = `${hour}:00-${Number(hour) + 1 === 24 ? "00" : String(Number(hour) + 1)}:00`;
                         new_button.addEventListener("click", () => {
-                            window.location.href= `/reservation/create?field_id=${field_id}&team_id=${team_id}&selected_date=${currYear}-${currMonth+1}-${item.innerText}-${hour}`;
+                            window.location.href = `/reservation/create?field_id=${field_id}&team_id=${team_id}&selected_date=${currYear}-${currMonth + 1}-${item.innerText}-${hour}`;
                         })
                         parent.appendChild(new_button);
                     });
@@ -57,9 +63,11 @@ const renderCalendar = () => {
     });
 
 }
-renderCalendar();
-
-prevNextIcon.forEach(icon => { // getting prev and next icons
+for (let i = 0; i < daysTags.length; i++) {
+    renderCalendar(daysTags[i], currentDates[i]);
+}
+prevNextIcon.forEach(icon => {
+    // getting prev and next icons
     icon.addEventListener("click", () => { // adding click event on both icons
         // if clicked icon is previous icon then decrement current month by 1 else increment it by 1
         currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
@@ -72,6 +80,8 @@ prevNextIcon.forEach(icon => { // getting prev and next icons
         } else {
             date = new Date(); // pass the current date as date value
         }
-        renderCalendar(); // calling renderCalendar function
+        let daysTag = icon.parentElement.parentElement.parentElement.getElementsByClassName("days")[0];
+        let currentDate = icon.parentElement.parentElement.getElementsByClassName("current-date")[0];
+        renderCalendar(daysTag, currentDate); // calling renderCalendar function
     });
 });

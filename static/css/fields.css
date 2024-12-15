@@ -35,14 +35,13 @@ body {
 
 }
 
-.denemeli{
+.denemeli {
     max-height: 800px;
     overflow: hidden;
     border-radius: 0px;
     transition: all 0.3s ease;
     cursor: pointer;
     background-color: #00A032;
-
 }
 
 
@@ -53,15 +52,19 @@ body {
     font-size: 14px;
     color: #555;
     margin-top: 10px;
+    display: flex;
+    padding-bottom: 20px;
+    justify-content: center;
 }
 
 .denemeli.expanded .ticket-details {
     max-height: 800px; /* İçeriğe göre ayarlanabilir */
+    height: fit-content;
     opacity: 1;
     background-color: #00A032;
     color: black;
-;
 }
+
 
 .photo-loop img {
     border-radius: 40px;

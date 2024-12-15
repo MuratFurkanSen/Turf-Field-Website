@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block additionalCss %}
+<link rel="stylesheet" href="{% static 'css/team.css' %}">
+
+{% endblock %}
 
 {% block content %}
 
@@ -145,7 +149,6 @@
 {% endblock %}
 
 
-
 <div>
-    {{field.id}}
+    {{ field.id }}
 </div>
