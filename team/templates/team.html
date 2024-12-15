@@ -24,8 +24,8 @@
                         {% for member in team.members.all %}
                             <div class="card-item swiper-slide" data-member_id="{{ member.id }}">
                                 <img class="user-image" src="{% static 'images/kafkaf.JPG' %}" alt="member-image">
-                                <h2 class="user-name">{{ member.id }} </h2>
-                                <p class="user-profession">{{ member.position }}</p>
+                                <h2 class="user-name">{{ member.profile.full_name }} </h2>
+                                <p class="user-profession">{{ member.profile.position }}</p>
                                 <a class="message-button"
                                    href="{{ team.id }}/edit_team/remove/{{ member.id }}">Remove</a>
                             </div>

@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 
 from .forms import TeamCreationForm
 from .models import Team
+from user.models import TeamInvite
 
 
 # Create your views here.
@@ -23,11 +24,12 @@ def edit_team(request, team_id, op, user_id):
     if request.user != team.captain:
         return HttpResponseForbidden("You are not allowed to edit this team")
     if op == "add":
-        user = User.objects.get(id=user_id)
-        team.members.add(user)
-        team.save()
+        send_team_invite_to_user(team_id, user_id)
         return redirect(f"/team/{team_id}")
     elif op == "remove":
+        if user_id == team.captain.id:
+            print('You can\'t remove yourself')
+            return redirect(f"/team/{team_id}")
         user = User.objects.get(id=user_id)
         team.members.remove(user)
         team.save()
@@ -41,8 +43,15 @@ def edit_team(request, team_id, op, user_id):
 
 
 def team(request, team_id):
-    team = Team.objects.get(id=team_id)
-    if request.user not in team.members.all():
+    selected_team = Team.objects.get(id=team_id)
+    if request.user not in selected_team.members.all():
         return HttpResponseForbidden("You are not a member of this team")
-    context = {'id': team_id, 'team': team}
+    context = {'id': team_id, 'team': selected_team}
     return render(request, 'team.html', context)
+
+def send_team_invite_to_user(team_id, user_id):
+    selected_team = Team.objects.get(id=team_id)
+    selected_user = User.objects.get(id=user_id)
+    invite = TeamInvite(team=selected_team, user=selected_user)
+    invite.save()
+    return redirect(f"/team/{team_id}")

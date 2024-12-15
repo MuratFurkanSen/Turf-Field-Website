@@ -7,11 +7,11 @@ from .models import UserProfile
 class UserRegistrationForm(UserCreationForm):
     # Fields from UserProfile
     choices = (
-        ("0", "Select Your Favorite Position"),
-        ("1", "Doesn't Matter"),
-        ("2", "Back"),
-        ("3", "Forward"),
-        ("4", "Middle"),
+        ("None", "Select Your Favorite Position"),
+        ("X", "Doesn't Matter"),
+        ("Back", "Back"),
+        ("Forward", "Forward"),
+        ("Middle", "Middle"),
 
     )
     full_name = forms.CharField(max_length=255, required=True,
