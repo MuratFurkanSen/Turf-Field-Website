@@ -108,22 +108,39 @@
                 <!-- Sign up -->
 
                 <div class="form signup_form">
-                    <form action="#">
+                    <form action="/user/register" method="POST">
+                        {% csrf_token %}
                         <h2>Signup</h2>
 
                         <div class="input_box">
-                            <input type="email" placeholder="Enter your email address" required/>
+                            {{ register_form.username }}
+                            <i class="uil uil-envelope-alt email"></i>
+                        </div>
+                        <div class="input_box">
+                            {{ register_form.full_name }}
+                            <i class="uil uil-envelope-alt email"></i>
+                        </div>
+                        <div class="input_box">
+                            {{ register_form.birth_date }}
+                            <i class="uil uil-envelope-alt email"></i>
+                        </div>
+                        <div class="input_box">
+                            {{ register_form.position }}
+                            <i class="uil uil-envelope-alt email"></i>
+                        </div>
+                        <div class="input_box">
+                            {{ register_form.phone_number }}
                             <i class="uil uil-envelope-alt email"></i>
                         </div>
 
                         <div class="input_box">
-                            <input type="password" placeholder="Create password" required/>
+                            {{ register_form.password1 }}
                             <i class="uil uil-lock password"></i>
                             <i class="uil uil-eye-slash pw_hide"></i>
                         </div>
 
                         <div class="input_box">
-                            <input type="password" placeholder="Confirm password" required/>
+                            {{ register_form.password2 }}
                             <i class="uil uil-lock password"></i>
                             <i class="uil uil-eye-slash pw_hide"></i>
                         </div>
