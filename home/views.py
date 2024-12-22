@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 
 from reservation.models import Reservation
@@ -31,4 +32,6 @@ def header_teams(request):
 
 
 def test(request):
-    return render(request, 'invites.html', {})
+    anan = DateTimeEntry()
+    anan.create_future_entries()
+    return HttpResponse('Success 8')

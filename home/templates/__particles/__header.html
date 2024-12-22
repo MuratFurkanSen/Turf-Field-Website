@@ -5,7 +5,6 @@
             <a href="/"><img style="width: 175px" class="homeLogo" src="{% static 'images/Logo Name.png' %}"></a>
             <div class="rightAlign">
                 {% if user.is_authenticated %}
-
                     <div class="headerBackground">
                         <a class="homeReservation gapBetweenHome buttonsGap " style="color:white;cursor: pointer;"
                            onclick="scrollDown()">Reservations</a>
@@ -69,68 +68,11 @@
                 <div class="form_container">
                     <i class="uil uil-times form_close" onclick="loginClose()"></i>
                     <!-- login form -->
-                    <div class="form login_form">
-                        <form action="/user/login" method="POST">
-                            {% csrf_token %}
-                            <h2>Login</h2>
-
-                            <div class="input_box">
-                                {{ login_form.username }}
-                                <i class="uil uil-envelope-alt email"></i>
-                            </div>
-
-                            <div class="input_box">
-                                {{ login_form.password }}
-                                <i class="uil uil-lock password"></i>
-                                <i class="uil uil-eye-slash pw_hide"></i>
-                            </div>
-
-                            <div class="option_field">
-                            <span class="checkbox">
-                                <input type="checkbox" id="check">
-                                <label for="check">Remember Me</label>/
-                            </span>
-                                <a href="#" class="forgot_pw">Forgot Password?</a>
-                            </div>
-
-                            <button class="button">Login Now</button>
-
-                            <div class="login_signup">
-                                Don't have an account? <a onclick="handleLogin(event)" href="#" id="login">Signup</a>
-                            </div>
-                        </form>
-                    </div>
+                    {% include '__particles/login.html' %}
 
                     <!-- Sign up -->
 
-                    <div class="form signup_form">
-                        <form action="#">
-                            <h2>Signup</h2>
-
-                            <div class="input_box">
-                                <input type="email" placeholder="Enter your email address" required/>
-                                <i class="uil uil-envelope-alt email"></i>
-                            </div>
-
-                            <div class="input_box">
-                                <input type="password" placeholder="Create password" required/>
-                                <i class="uil uil-lock password"></i>
-                                <i class="uil uil-eye-slash pw_hide"></i>
-                            </div>
-
-                            <div class="input_box">
-                                <input type="password" placeholder="Confirm password" required/>
-                                <i class="uil uil-lock password"></i>
-                                <i class="uil uil-eye-slash pw_hide"></i>
-                            </div>
-
-                            <button class="button">Signup Now</button>
-
-                            <div class="login_signup">
-                                Already have an account? <a onclick="handleSignup(event)" href="#" id="signup">Login</a>
-                            </div>
-                        </form>
-                    </div>
+                    {% include '__particles/register.html' %}
 
 
                 </div>

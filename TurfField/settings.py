@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'reservation',
     'team',
     'user',
-    'field'
+    'field',
+    'facility',
 ]
 
 MIDDLEWARE = [

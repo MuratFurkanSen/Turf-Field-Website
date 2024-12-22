@@ -38,26 +38,36 @@ const renderCalendar = (daysTag, currentDate) => {
     daysTag.innerHTML = liTag;
     Array.from(daysTag.getElementsByClassName("active")).forEach((item) => {
         item.addEventListener("click", () => {
-            Array.from(daysTag.getElementsByClassName("active")).forEach((item) => {
-                item.classList.remove("selected");
-            });
+            daysTag.getElementsByClassName("selected")[0].classList.remove("selected");
             item.classList.add("selected");
 
-            let field_id = 2;
+            let field_id = item.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.dataset.customValue;
             fetch(`/reservation/get_reservation_options?field_id=${field_id}&selected_date=${currYear}-${currMonth + 1}-${item.innerText}`)
                 .then(response => response.json())
                 .then(data => {
                     let parent = item.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector("#Anan");
-                    let team_id = "14";
                     parent.innerHTML = "";
                     data.date_options.forEach((hour) => {
                         let new_button = document.createElement("button");
                         new_button.textContent = `${hour}:00-${Number(hour) + 1 === 24 ? "00" : String(Number(hour) + 1)}:00`;
                         new_button.addEventListener("click", () => {
+                            let team_id = document.getElementById("Cool").value
                             window.location.href = `/reservation/create?field_id=${field_id}&team_id=${team_id}&selected_date=${currYear}-${currMonth + 1}-${item.innerText}-${hour}`;
-                        })
+                        });
                         parent.appendChild(new_button);
                     });
+                    let new_select = document.createElement("select");
+                    new_select.id = "Cool"
+                    data.team_options.forEach((team) => {
+                        let pieces = team.split(',');
+
+                        let new_option = document.createElement("option");
+                        new_option.value = pieces[0];
+                        new_option.textContent = pieces[1];
+                        new_select.appendChild(new_option);
+                    });
+                    parent.appendChild(new_select);
+
                 });
         });
     });

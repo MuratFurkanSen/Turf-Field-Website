@@ -1,14 +1,17 @@
 from django.db import models
-
 from datetime import datetime, timedelta
+from facility.models import Facility
 
 # Create your models here.
 class DateTimeEntry(models.Model):
     date = models.DateTimeField()
 
     def create_future_entries(self):
-        next_day = DateTimeEntry.objects.last().date
-        next_day = datetime(next_day.year, next_day.month, next_day.day+1)
+        if DateTimeEntry.objects.last() is None:
+            next_day = datetime.today() + timedelta(days=1)
+        else:
+            next_day = DateTimeEntry.objects.last().date
+            next_day = datetime(next_day.year, next_day.month, next_day.day+1)
 
         str_day = next_day.strftime("%a")
         for i in range(24):
@@ -32,17 +35,9 @@ class Field(models.Model):
     # Field Related Info
     name = models.CharField(max_length=100)
     schedule = models.JSONField(default=dict)
+    belonged_facility = models.ForeignKey(Facility, on_delete=models.CASCADE, related_name='fields')
     reservation_available_dates = models.ManyToManyField(DateTimeEntry, through='DateTimeEntryShip')
-    is_have_shoes = models.BooleanField()
 
-    # Address Related Info
-    province = models.CharField(max_length=100)
-    district = models.CharField(max_length=100)
-    neighborhood = models.CharField(max_length=100)
-    street = models.CharField(max_length=100)
-    building = models.CharField(max_length=100)
-    indoor = models.CharField(max_length=100)
-    maps_location = models.URLField()
 
     def __str__(self):
         return f"{self.name}"

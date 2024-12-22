@@ -1,9 +1,28 @@
-{{ register_form.username }}
-{{ register_form.full_name }}
-{{ register_form.password1 }}
-{{ register_form.password2 }}
-{{ register_form.email }}
-{{ register_form.phone_number }}
-{{ register_form.position }}
-{{ register_form.birth_date }}
-<button type="submit">Sign Up</button>
+<div class="form signup_form">
+    <form action="#">
+        <h2>Signup</h2>
+
+        <div class="input_box">
+            {{ register_form.username }}
+            <i class="uil uil-envelope-alt email"></i>
+        </div>
+
+        <div class="input_box">
+            {{register_form.password1}}
+            <i class="uil uil-lock password"></i>
+            <i class="uil uil-eye-slash pw_hide"></i>
+        </div>
+
+        <div class="input_box">
+            {{register_form.password2}}
+            <i class="uil uil-lock password"></i>
+            <i class="uil uil-eye-slash pw_hide"></i>
+        </div>
+
+        <button class="button">Signup Now</button>
+
+        <div class="login_signup">
+            Already have an account? <a onclick="handleSignup(event)" href="#" id="signup">Login</a>
+        </div>
+    </form>
+</div>

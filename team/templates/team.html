@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block additionalCss %}
+    <link rel="stylesheet" href="{% static 'css/team.css' %}">
+{% endblock %}
 {% block additionalScript %}
-    <script src="{% static 'js/team.js' %}"></script>{% endblock %}
+    <script src="{% static 'js/team.js' %}"></script>
+{% endblock %}
 {% block content %}
 
     <div class="mainTeam">

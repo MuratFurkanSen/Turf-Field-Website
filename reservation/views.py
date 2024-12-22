@@ -17,7 +17,6 @@ def create(request):
     field_id = int(request.GET.get('field_id'))
     team_id = int(request.GET.get('team_id'))
     year, month, day, hour = list(map(int,request.GET.get('selected_date').split("-")))
-    print(field_id,team_id, month, day, hour)
 
     selected_date = datetime(year, month, day, hour,0,0)
     if not Field.objects.filter(id=field_id).exists():
@@ -41,13 +40,14 @@ def get_reservation_options(request):
     field_id = request.GET.get('field_id')
     year, month, day = request.GET.get('selected_date').split("-")
     print(year, month, day, sep='-')
+    print(field_id)
     field = Field.objects.get(pk=field_id)
 
+    team_options = Team.objects.filter(captain=request.user)
+    team_options = list(map(lambda team: f'{team.id},{team.name}', team_options))
     date_options = field.reservation_available_dates.filter(date__year=year, date__month=month, date__day=day)
-    print(date_options)
     date_options = list(map(lambda x: str(x).split()[1].split(':')[0], date_options))
-    print(date_options)
-    return JsonResponse({'date_options': date_options})
+    return JsonResponse({'date_options': date_options, 'team_options': team_options})
 
 
 def reservation(request):

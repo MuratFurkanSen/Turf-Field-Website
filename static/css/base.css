@@ -41,8 +41,6 @@ body {
     box-shadow: 0 0 6px 0 rgba(0, 0, 0, .3), 0 8px 10px 0 rgba(0, 0, 0, .2);
 }
 
-
-
 a {
     text-decoration: none;
 }
@@ -87,6 +85,7 @@ button {
 }
 
 .imgAndButtons {
+    width: 100%;
     display: flex; /* Flexbox ile hizalama yap */
     justify-content: space-between; /* Img solda, butonlar sağda */
     align-items: center; /* Dikeyde ortalar */

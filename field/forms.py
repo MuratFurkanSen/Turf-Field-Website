@@ -1,4 +1,6 @@
 from django import forms
+
+from facility.models import Facility
 from .models import Field
 
 HOUR_CHOICES = tuple(
@@ -60,46 +62,15 @@ class FieldCreationForm(forms.ModelForm):
         choices=HOUR_CHOICES,
         label='Sunday Time Slots',
     )
-    province_slots = forms.ChoiceField(
-        widget=forms.Select,
-        choices=province_choices,
-        label='Province Slots',
-    )
-    district_slots = forms.ChoiceField(
-        widget=forms.Select,
-        choices=district_choices,
-        label='District Slots',
-    )
-    neighborhood_slots = forms.ChoiceField(
-        widget=forms.Select,
-        choices=neighborhood_choices,
-        label='Neighborhood Slots',
-    )
-    street_slots = forms.ChoiceField(
-        widget=forms.Select,
-        choices=street_choices,
-        label='Street Slots',
-    )
-    building_slots = forms.ChoiceField(
-        widget=forms.Select,
-        choices=building_choices,
-        label='Building Slots',
-    )
-    indoor_slots = forms.ChoiceField(
-        widget=forms.Select,
-        choices=indoor_choices,
-        label='Indoor Slots',
-    )
 
     class Meta:
         model = Field
-        fields = [  # Field Info
-            'name', 'is_have_shoes', 'mon_time_slots', 'tue_time_slots', 'wed_time_slots',
-            'thu_time_slots', 'fri_time_slots', 'sat_time_slots', 'sun_time_slots',
-            # Address Info
-            'province_slots', 'district_slots', 'neighborhood_slots',
-            'street_slots', 'building_slots', 'indoor_slots',
-            'maps_location', ]
+        fields = [
+            # Field Info
+            'name', 'belonged_facility',
+            # Schedule Info
+            'mon_time_slots', 'tue_time_slots', 'wed_time_slots',
+            'thu_time_slots', 'fri_time_slots', 'sat_time_slots', 'sun_time_slots']
         widgets = {}
 
     def save(self, commit=True):
@@ -111,12 +82,6 @@ class FieldCreationForm(forms.ModelForm):
         field.schedule['Fri'] = ','.join(slot.split('-')[0] for slot in self.cleaned_data['fri_time_slots'])
         field.schedule['Sat'] = ','.join(slot.split('-')[0] for slot in self.cleaned_data['sat_time_slots'])
         field.schedule['Sun'] = ','.join(slot.split('-')[0] for slot in self.cleaned_data['sun_time_slots'])
-        field.province = self.cleaned_data['province_slots']
-        field.district = self.cleaned_data['district_slots']
-        field.neighborhood = self.cleaned_data['neighborhood_slots']
-        field.street = self.cleaned_data['street_slots']
-        field.building = self.cleaned_data['building_slots']
-        field.indoor = self.cleaned_data['indoor_slots']
 
         if commit:
             field.save()
