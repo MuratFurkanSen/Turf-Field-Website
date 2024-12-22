@@ -6,12 +6,12 @@
 
 .homeBoxes {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 3 sütun */
-    grid-template-rows: repeat(2, 1fr); /* 3 sütun */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     width: 80%;
-    margin: auto auto 50px auto;
+    margin: 3% auto 4% auto;
     justify-content: space-between;
-    gap: 20px;
+    gap: 2%;
 }
 
 
@@ -19,102 +19,48 @@
     display: grid;
     width: 80%;
     margin: auto;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .3), 0 8px 10px 0 rgba(0, 0, 0, .2); /* BURASI MEDİA İLE OLACAK */
+    border-radius: 12%;
+    background-color: #00A032;
 
 }
 
 
 .haliSahaBulmaImg {
-    width: 400px;
-    height: 260px;
+    width: 100%;
     cursor: pointer;
 }
 
 .reservationScroll {
-    width: 400px;
-    height: 260px;
-    padding: 10px;
+    width: 100%;
+    height: 260px; /* BURASI MEDİA İLE OLACAK */
+    padding: 3%;
     background-color: #00A032;
-    overflow-y: scroll; /* Dikey kaydırmayı aktif eder */
+    overflow-y: scroll;
     overflow-x: hidden;
-    border-radius: 40px;
+    border-radius: 11%;
     scrollbar-width: none;
-    max-width: 400px;
-}
-
-.reservationScroll1 {
-    width: 400px;
-    height: 260px;
-    padding: 10px;
-    background-color: #00A032;
-    border-radius: 40px;
-    scrollbar-width: none;
-    max-width: 400px;
+    max-width: 400px; /* BURASI MEDİA İLE OLACAK */
 }
 
 
-
-
-
-.voteScreen{
-    display: inline-flex;
-    overflow-x: auto;
-    gap: 10px;
-}
-
-.voteScreen img{
-    cursor: pointer;
-}
-
-/* Her bir öğe için stil */
 .reservationScrollItem {
     display: inline-flex;
     background-color: #f44336;
-    margin-bottom: 5px;
-    border-radius: 20px;
+    border-radius: 20px; /* BURASI MEDİA İLE OLACAK */
 }
 
 .reservationScrollItem img {
-    width: 40%; /* Görüntü genişliği kutuya göre ayarlanır */
-    height: auto; /* Görüntü yüksekliği orantılı olarak ayarlanır */
-    border-radius: 20px; /* Görüntülere hafif bir kenar yuvarlama ekler */
+    width: 40%;
+    height: auto;
+    border-radius: 20px; /* BURASI MEDİA İLE OLACAK */
 }
 
 .reservationScrollItem h2 {
-    font-size: 1.2em; /* Başlık boyutu */
-    margin-top: 10px; /* Görüntü ile başlık arasındaki boşluk */
-    word-wrap: break-word;
-}
-
-.mainHomeDiv {
-    width: 95%;
-    margin: 2% auto 2% auto;
-    height: 30%;
-    background-color: green;
-    display: inline-flex;
-    border-radius: 70px;
-}
-
-.profileHomeImg {
-
-}
-
-
-.mainPhoto {
+    font-size: 1.2em; /* BURASI MEDİA İLE OLACAK */
+    margin-top: 2%;
     margin-left: 2%;
-    align-items: center;
-    margin-right: 5%;
-    cursor: pointer;
-}
-
-.profileInfo {
-    color: white;
-    display: inline-flex;
-    white-space: nowrap;
-    justify-content: space-between;
-    gap: 50px;
-    align-items: center;
-    text-align: center;
-    margin: auto auto auto 0;
+    word-wrap: break-word;
 }
 
 
@@ -124,10 +70,10 @@
     height: 80%;
     margin: auto;
     position: absolute;
-    visibility: hidden;
     background-color: green;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    padding: 10px;
+    visibility: hidden;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); /* BURASI MEDİA İLE OLACAK */
+    padding: 1%;
     z-index: 1;
     top: 50%;
     left: 50%;
@@ -142,20 +88,20 @@
 
 .iconPhotoProfile {
     position: absolute;
-    width: 120px;
-    height: 160px;
-    left: 120px;
-    top: 70px;
+    width: 12.5%;
+    height: 40%;
+    left: 12.5%;
+    top: 17%;
     cursor: pointer;
 }
 
 .playerCards {
-    margin: 30px;
+    margin: 4%;
     white-space: nowrap;
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 sütun */
-    grid-template-rows: repeat(3, 1fr); /* 3 sütun */
-    gap: 60px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 60px; /* BURASI MEDİA İLE OLACAK */
     width: 100%;
     justify-content: end;
 
@@ -166,18 +112,18 @@
     cursor: pointer;
 }
 
-.deneme {
+.homeCardsPhotoDiv {
     justify-content: start;
 }
 
-.deneme300 {
+.staticsPlayer {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    gap: 20px;  /* BURASI MEDİA İLE OLACAK */
 }
 
-.deneme, .playerCards {
-    margin-top: 50px;
+.homeCardsPhotoDiv, .playerCards {
+    margin-top: 5%;
 }
 
 
@@ -191,77 +137,3 @@
     position: relative;
 }
 
-
-.whiteBoard {
-    position: absolute;
-    width: 50px;
-    height: 60px;
-    left: 70px;
-    top: 45px;
-    cursor: pointer;
-}
-
-
-.homeCards1 {
-    display: inline-flex;
-    width: 80%;
-    height: 80%;
-    margin: auto;
-    position: absolute;
-    visibility: hidden;
-    background-color: green;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    padding: 10px;
-    z-index: 1;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.deneme1 {
-    justify-content: start;
-}
-
-.deneme1, .playerCards {
-    margin-top: 50px;
-}
-
-.iconPhotoDesign1 {
-    width: 250%;
-    position: relative;
-}
-
-.iconPhoto1 {
-    width: 30%;
-    cursor: pointer;
-}
-
-.iconPhotoProfile1 {
-    position: absolute;
-    width: 120px;
-    height: 160px;
-    left: 120px;
-    top: 70px;
-    cursor: pointer;
-}
-
-
-.playerCards1 {
-    margin: 30px;
-    white-space: nowrap;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 sütun */
-    grid-template-rows: repeat(3, 1fr); /* 3 sütun */
-    gap: 60px;
-    width: 100%;
-    justify-content: end;
-}
-
-.deneme3001 {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.deneme3001 li input{
-}
