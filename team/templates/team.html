@@ -1,70 +1,69 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block additionalCss %}
-    <link rel="stylesheet" href="{% static 'css/team.css' %}">
+<link rel="stylesheet" href="{% static 'css/team.css' %}">
 {% endblock %}
 {% block additionalScript %}
-    <script src="{% static 'js/team.js' %}"></script>
-{% endblock %}
+<script src="{% static 'js/team.js' %}"></script>{% endblock %}
 {% block content %}
 
-    <div class="mainTeam">
-        <div class="TeamLeftSide">
-            <div class="inlineAdmin">
-                <div style="width: fit-content;height: fit-content" class="participantJoin">
-                    <input id="userIdInput" type="number" value="Add Member">
-                    <button class="message-button" onclick="addMember({{ team.id }})">Add Member</button>
-                </div>
-                <div style="align-self: end">
-                    <button class="toggle-btn" onclick="toggleButton(this)" style="height: fit-content;">Takım 1
-                    </button>
-                    <button class="toggle-btn" onclick="toggleButton(this)" style="height:fit-content;">Takım 2</button>
-                </div>
+<div class="mainTeam">
+    <div class="TeamLeftSide">
+        <div class="inlineAdmin">
+            <div style="width: fit-content;height: fit-content" class="participantJoin">
+                <input id="userIdInput" type="number" value="Add Member">
+                <button class="message-button" onclick="addMember({{ team.id }})">Add Member</button>
             </div>
+            <div style="align-self: end">
+                <button class="toggle-btn" onclick="toggleButton(this)" style="height: fit-content;">Takım 1
+                </button>
+                <button class="toggle-btn" onclick="toggleButton(this)" style="height:fit-content;">Takım 2</button>
+            </div>
+        </div>
 
-            <div class="container swiper">
-                <div class="slider-wrapper">
-                    <div class="card-list swiper-wrapper">
-                        {% for member in team.members.all %}
-                            <div class="card-item swiper-slide" data-member_id="{{ member.id }}">
-                                <img class="user-image" src="{% static 'images/kafkaf.JPG' %}" alt="member-image">
-                                <h2 class="user-name">{{ member.profile.full_name }} </h2>
-                                <p class="user-profession">{{ member.profile.position }}</p>
-                                <a class="message-button"
-                                   href="{{ team.id }}/edit_team/remove/{{ member.id }}">Remove</a>
-                            </div>
-                        {% endfor %}
+        <div class="container swiper">
+            <div class="slider-wrapper">
+                <div class="card-list swiper-wrapper">
+                    {% for member in team.members.all %}
+                    <div class="card-item swiper-slide" data-member_id="{{ member.id }}">
+                        <img class="user-image" src="{% static 'images/kafkaf.JPG' %}" alt="member-image">
+                        <h2 class="user-name">{{ member.profile.full_name }} </h2>
+                        <p class="user-profession">{{ member.profile.position }}</p>
+                        <a class="message-button"
+                           href="{{ team.id }}/edit_team/remove/{{ member.id }}">Remove</a>
                     </div>
-                    <div class="swiper-slide-buttons swiper-pagination"></div>
-                    <div class="swiper-slide-buttons swiper-button-prev"></div>
-                    <div class="swiper-slide-buttons swiper-button-next"></div>
+                    {% endfor %}
                 </div>
-            </div>
-        </div>
-
-        <div class="teamRightSide">
-            <div class="pitch1">
-                <img style="width:70%;float: left" src="{% static 'images/pitch.jpeg' %}">
-                <div class="pitch2">
-                    <button class="playerButton">1</button>
-                    <button class="playerButton">1</button>
-                    <button class="playerButton">1</button>
-                    <button class="playerButton">1</button>
-                    <button class="playerButton">1</button>
-                    <button class="playerButton">1</button>
-                </div>
+                <div class="swiper-slide-buttons swiper-pagination"></div>
+                <div class="swiper-slide-buttons swiper-button-prev"></div>
+                <div class="swiper-slide-buttons swiper-button-next"></div>
             </div>
         </div>
     </div>
 
-
-    <div class="paymentTeam">
-        <div class="paymentMainPart">
-            <h1 onclick="xButtonClosePayment()" style="text-align: end;margin-right: 15px;cursor: pointer">X</h1>
-            <h1>Ödeme sayfası</h1>
+    <div class="teamRightSide">
+        <div class="pitch1">
+            <img style="width:70%;float: left" src="{% static 'images/pitch.jpeg' %}">
+            <div class="pitch2">
+                <button class="playerButton">1</button>
+                <button class="playerButton">1</button>
+                <button class="playerButton">1</button>
+                <button class="playerButton">1</button>
+                <button class="playerButton">1</button>
+                <button class="playerButton">1</button>
+            </div>
         </div>
-
     </div>
+</div>
+
+
+<div class="paymentTeam">
+    <div class="paymentMainPart">
+        <h1 onclick="xButtonClosePayment()" style="text-align: end;margin-right: 15px;cursor: pointer">X</h1>
+        <h1>Ödeme sayfası</h1>
+    </div>
+
+</div>
 
 
 {% endblock %}
