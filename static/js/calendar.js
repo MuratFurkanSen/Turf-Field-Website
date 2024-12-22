@@ -12,6 +12,7 @@ const months = ["January", "February", "March", "April", "May", "June", "July",
     "August", "September", "October", "November", "December"];
 
 const renderCalendar = (daysTag, currentDate) => {
+
     let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(), // getting first day of month
         lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(), // getting last date of month
         lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(), // getting last day of month
@@ -41,7 +42,9 @@ const renderCalendar = (daysTag, currentDate) => {
             daysTag.getElementsByClassName("selected")[0].classList.remove("selected");
             item.classList.add("selected");
 
-            let field_id = item.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.dataset.customValue;
+            let facility_id = item.parentElement.parentElement.parentElement.parentElement.parentElement.dataset.facilityId;
+            console.log(facility_id);
+            let field_id = document.getElementById(`field_select_${facility_id}`).value;
             fetch(`/reservation/get_reservation_options?field_id=${field_id}&selected_date=${currYear}-${currMonth + 1}-${item.innerText}`)
                 .then(response => response.json())
                 .then(data => {
@@ -73,6 +76,11 @@ const renderCalendar = (daysTag, currentDate) => {
     });
 
 }
+document.querySelectorAll('.denemeli').forEach(element => {
+    element.addEventListener('change', () => {
+        document.querySelector('#Anan').innerHTML = "";
+    });
+});
 for (let i = 0; i < daysTags.length; i++) {
     renderCalendar(daysTags[i], currentDates[i]);
 }

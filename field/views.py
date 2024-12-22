@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
+from facility.models import Facility
 from .forms import FieldCreationForm
-from .models import Field
 
 
 # Create your views here.
@@ -19,6 +19,6 @@ def createField(request):
 
 
 def fields(request):
-    fields = Field.objects.all()
-    context = {'fields': fields}
+    facilities = Facility.objects.all()
+    context = {'facilities' : facilities}
     return render(request,'fields.html', context)
