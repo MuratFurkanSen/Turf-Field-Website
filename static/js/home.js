@@ -80,9 +80,7 @@ function homecardClose() {
     document.querySelector('.homeCards').style.visibility = 'hidden';
 }
 
-function toggleButton(button) {
-    button.classList.toggle("active");
-}
+
 
 function scrollDown() {
     window.scrollBy({
