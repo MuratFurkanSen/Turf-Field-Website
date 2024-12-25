@@ -136,4 +136,8 @@
     width: 12%;
     position: relative;
 }
+.header-status{
+    position: absolute;
+    background-color: transparent;
+}
 

@@ -32,14 +32,7 @@ body {
 
 
 /* ////////////HOME HEADER BODY PART////////////////   */
-.colorHome {
-    position: static;
-    background-color: #00A032;
-    width: 100%;
-    height: 80px;
-    align-content: center;
-    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .3), 0 8px 10px 0 rgba(0, 0, 0, .2);
-}
+
 
 a {
     text-decoration: none;
@@ -577,6 +570,16 @@ footer {
 
 .form_container.active .login_form {
     display: none;
+}
+
+.header-status{
+    position: static;
+    color: white;
+    z-index: 10;
+    width: 100%;
+    height: 80px;
+    align-content: center;
+    background-color: #00A032;
 }
 
 

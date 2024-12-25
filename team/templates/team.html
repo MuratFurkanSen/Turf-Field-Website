@@ -14,14 +14,9 @@
                 <input id="userIdInput" type="number" value="Add Member">
                 <button class="message-button" onclick="addMember({{ team.id }})">Add Member</button>
             </div>
-            <div style="align-self: end">
-                <button class="toggle-btn" onclick="toggleButton(this)" style="height: fit-content;">Takım 1
-                </button>
-                <button class="toggle-btn" onclick="toggleButton(this)" style="height:fit-content;">Takım 2</button>
-            </div>
         </div>
 
-        <div class="container swiper">
+        <div class="container1 swiper">
             <div class="slider-wrapper">
                 <div class="card-list swiper-wrapper">
                     {% for member in team.members.all %}
@@ -42,7 +37,10 @@
     </div>
 
     <div class="teamRightSide">
-        <div class="pitch1">
+
+    </div>
+</div>
+<div class="pitch1">
             <img style="width:70%;float: left" src="{% static 'images/pitch.jpeg' %}">
             <div class="pitch2">
                 <button class="playerButton">1</button>
@@ -53,8 +51,6 @@
                 <button class="playerButton">1</button>
             </div>
         </div>
-    </div>
-</div>
 
 
 <div class="paymentTeam">

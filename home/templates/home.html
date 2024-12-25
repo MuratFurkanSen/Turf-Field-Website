@@ -1,221 +1,220 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block additionalCss %}
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock %}
 {% block content %}
 
-
-
-    <div class="homeBoxes">
-        <div class="haliSahaBulma">
-            <div class="reservationScroll">
-                {% for reservation in reservations %}
-                    <div class="reservationScrollItem">
-                        <img src="{% static 'images/starbucks.png' %}" alt="Photo 2">
-                        <h2>{{ reservation.reservation_date }}</h2>
-                    </div>
-                {% endfor %}
+<div class="homePagePhoto">
+    <img style="width: 100%;height: 60%;position: relative" src="{% static 'images/homePhoto1.jpg' %}" alt="Photo 2">
+</div>
+<div class="homeBoxes">
+    <div class="haliSahaBulma">
+        <div class="reservationScroll">
+            {% for reservation in reservations %}
+            <div class="reservationScrollItem">
+                <img src="{% static 'images/starbucks.png' %}" alt="Photo 2">
+                <h2>{{ reservation.reservation_date }}</h2>
             </div>
-        </div>
-        <div class="haliSahaBulma">
-            <div class="reservationScroll">
-                {% for team in all_teams %}
-                    <div class="reservationScrollItem">
-                    <img src="{% static 'images/starbucks.png' %}" alt="Photo 2">
-                    <a href="team/{{ team.id }}">{{ team.name }}</a>
-
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-        <div class="haliSahaBulma">
-            <img class="haliSahaBulmaImg" src="{% static 'images/starbucks.png' %}" alt="Photo 2">
-        </div>
-        <div class="haliSahaBulma">
-            <img class="haliSahaBulmaImg" src="{% static 'images/starbucks.png' %}" alt="Photo 2">
+            {% endfor %}
         </div>
     </div>
+    <div class="haliSahaBulma">
+        <div class="reservationScroll">
+            {% for team in all_teams %}
+            <div class="reservationScrollItem">
+                <img src="{% static 'images/starbucks.png' %}" alt="Photo 2">
+                <a href="team/{{ team.id }}">{{ team.name }}</a>
 
-
-    <div class="homeCards">
-        <div class="homeCardsPhotoDiv">
-            <div class="iconPhotoDesign">
-                <img class="iconPhoto" onclick="homecardClose()" src="{% static 'images/fifaiconpng.png' %}"
-                     alt="Photo 2">
-                <img class="iconPhotoProfile" onclick="homecardClose()" src="{% static 'images/kafkaf.JPG' %}"
-                     alt="Photo 2">
             </div>
-        </div>
-        <div style="margin-top: 60px" class="playerCards">
-            <div>
-                <div class="staticsPlayer">
-                    <h2>Pace</h2>
-                    <h2>10</h2>
-                </div>
-                <ul>
-                    <div class="staticsPlayer">
-                        <li>Acceleration</li>
-                        <li>10</li>
-                    </div>
-                    <div class="staticsPlayer">
-                        <li>Sprint Speed</li>
-                        <li>10</li>
-                    </div>
-                </ul>
-            </div>
-            <div>
-                <div class="staticsPlayer">
-                    <h2>Shooting</h2>
-                    <h2>10</h2>
-                </div>
-                <ul>
-                    <div class="staticsPlayer">
-                        <li>Att. Position</li>
-                        <li>10</li>
-                    </div>
-                    <div class="staticsPlayer">
-                        <li>Finishing</li>
-                        <li>10</li>
-                    </div>
-                    <div class="staticsPlayer">
-                        <li>Shot Power</li>
-                        <li>10</li>
-                    </div>
-                    <div class="staticsPlayer">
-                        <li>Long Shots</li>
-                        <li>10</li>
-                    </div>
-                    <div class="staticsPlayer">
-                        <li>Volleys</li>
-                        <li>10</li>
-                    </div>
-                    <div class="staticsPlayer">
-                        <li>Penalties</li>
-                        <li>10</li>
-                    </div>
-                </ul>
-            </div>
-            <div>
-                <div class="staticsPlayer">
-                    <h2>Passing</h2>
-                    <h2>10</h2>
-                </div>
-                <ul>
-                    <div class="staticsPlayer">
-                        <li>Vision</li>
-                        <li>10</li>
-                    </div>
-                    <div class="staticsPlayer">
-                        <li>Crossing</li>
-                        <li>10</li>
-                    </div>
-                    <div class="staticsPlayer">
-                        <li>FK Acc.</li>
-                        <li>10</li>
-                    </div>
-                    <div class="staticsPlayer">
-                        <li>Short Pass</li>
-                        <li>10</li>
-                    </div>
-                    <div class="staticsPlayer">
-                        <li>Long Pass</li>
-                        <li>10</li>
-                    </div>
-                    <div class="staticsPlayer">
-                        <li>Curve</li>
-                        <li>10</li>
-                    </div>
-                </ul>
-            </div>
-            <div>
-                <div class="staticsPlayer">
-                    <h2>Dribbling</h2>
-                    <h2>10</h2>
-                </div>
-                <ul>
-                    <div class="staticsPlayer">
-                        <li>Agility</li>
-                        <li>10</li>
-                    </div>
-                    <div class="staticsPlayer">
-                        <li>Balance</li>
-                        <li>10</li>
-                    </div>
-                    <div class="staticsPlayer">
-                        <li>Reactions</li>
-                        <li>10</li>
-                    </div>
-                    <div class="staticsPlayer">
-                        <li>Ball Control</li>
-                        <li>10</li>
-                    </div>
-                    <div class="staticsPlayer">
-                        <li>Dribbling</li>
-                        <li>10</li>
-                    </div>
-                    <div class="staticsPlayer">
-                        <li>Composure</li>
-                        <li>10</li>
-                    </div>
-                </ul>
-            </div>
-            <div>
-                <div class="staticsPlayer">
-                    <h2>Defending</h2>
-                    <h2>10</h2>
-                </div>
-                <ul>
-                    <div class="staticsPlayer">
-                        <li>Interceptions</li>
-                        <li>10</li>
-                    </div>
-                    <div class="staticsPlayer">
-                        <li>Heading Acc.</li>
-                        <li>10</li>
-                    </div>
-                    <div class="staticsPlayer">
-                        <li>Def. Aware</li>
-                        <li>10</li>
-                    </div>
-                    <div class="staticsPlayer">
-                        <li>Stand Tackle</li>
-                        <li>10</li>
-                    </div>
-                    <div class="staticsPlayer">
-                        <li>Slide Tackle</li>
-                        <li>10</li>
-                    </div>
-                </ul>
-            </div>
-            <div>
-                <div class="staticsPlayer">
-                    <h2>Physical</h2>
-                    <h2>10</h2>
-                </div>
-                <ul>
-                    <div class="staticsPlayer">
-                        <li>Jumping</li>
-                        <li>10</li>
-                    </div>
-                    <div class="staticsPlayer">
-                        <li>Stamina</li>
-                        <li>10</li>
-                    </div>
-                    <div class="staticsPlayer">
-                        <li>Strength</li>
-                        <li>10</li>
-                    </div>
-                    <div class="staticsPlayer">
-                        <li>Aggression</li>
-                        <li>10</li>
-                    </div>
-                </ul>
-            </div>
+            {% endfor %}
         </div>
     </div>
+    <div class="haliSahaBulma">
+        <img class="haliSahaBulmaImg" src="{% static 'images/starbucks.png' %}" alt="Photo 2">
+    </div>
+    <div class="haliSahaBulma">
+        <img class="haliSahaBulmaImg" src="{% static 'images/starbucks.png' %}" alt="Photo 2">
+    </div>
+</div>
 
 
+<div class="homeCards">
+    <div class="homeCardsPhotoDiv">
+        <div class="iconPhotoDesign">
+            <img class="iconPhoto" onclick="homecardClose()" src="{% static 'images/fifaiconpng.png' %}"
+                 alt="Photo 2">
+            <img class="iconPhotoProfile" onclick="homecardClose()" src="{% static 'images/kafkaf.JPG' %}"
+                 alt="Photo 2">
+        </div>
+    </div>
+    <div style="margin-top: 60px" class="playerCards">
+        <div>
+            <div class="staticsPlayer">
+                <h2>Pace</h2>
+                <h2>10</h2>
+            </div>
+            <ul>
+                <div class="staticsPlayer">
+                    <li>Acceleration</li>
+                    <li>10</li>
+                </div>
+                <div class="staticsPlayer">
+                    <li>Sprint Speed</li>
+                    <li>10</li>
+                </div>
+            </ul>
+        </div>
+        <div>
+            <div class="staticsPlayer">
+                <h2>Shooting</h2>
+                <h2>10</h2>
+            </div>
+            <ul>
+                <div class="staticsPlayer">
+                    <li>Att. Position</li>
+                    <li>10</li>
+                </div>
+                <div class="staticsPlayer">
+                    <li>Finishing</li>
+                    <li>10</li>
+                </div>
+                <div class="staticsPlayer">
+                    <li>Shot Power</li>
+                    <li>10</li>
+                </div>
+                <div class="staticsPlayer">
+                    <li>Long Shots</li>
+                    <li>10</li>
+                </div>
+                <div class="staticsPlayer">
+                    <li>Volleys</li>
+                    <li>10</li>
+                </div>
+                <div class="staticsPlayer">
+                    <li>Penalties</li>
+                    <li>10</li>
+                </div>
+            </ul>
+        </div>
+        <div>
+            <div class="staticsPlayer">
+                <h2>Passing</h2>
+                <h2>10</h2>
+            </div>
+            <ul>
+                <div class="staticsPlayer">
+                    <li>Vision</li>
+                    <li>10</li>
+                </div>
+                <div class="staticsPlayer">
+                    <li>Crossing</li>
+                    <li>10</li>
+                </div>
+                <div class="staticsPlayer">
+                    <li>FK Acc.</li>
+                    <li>10</li>
+                </div>
+                <div class="staticsPlayer">
+                    <li>Short Pass</li>
+                    <li>10</li>
+                </div>
+                <div class="staticsPlayer">
+                    <li>Long Pass</li>
+                    <li>10</li>
+                </div>
+                <div class="staticsPlayer">
+                    <li>Curve</li>
+                    <li>10</li>
+                </div>
+            </ul>
+        </div>
+        <div>
+            <div class="staticsPlayer">
+                <h2>Dribbling</h2>
+                <h2>10</h2>
+            </div>
+            <ul>
+                <div class="staticsPlayer">
+                    <li>Agility</li>
+                    <li>10</li>
+                </div>
+                <div class="staticsPlayer">
+                    <li>Balance</li>
+                    <li>10</li>
+                </div>
+                <div class="staticsPlayer">
+                    <li>Reactions</li>
+                    <li>10</li>
+                </div>
+                <div class="staticsPlayer">
+                    <li>Ball Control</li>
+                    <li>10</li>
+                </div>
+                <div class="staticsPlayer">
+                    <li>Dribbling</li>
+                    <li>10</li>
+                </div>
+                <div class="staticsPlayer">
+                    <li>Composure</li>
+                    <li>10</li>
+                </div>
+            </ul>
+        </div>
+        <div>
+            <div class="staticsPlayer">
+                <h2>Defending</h2>
+                <h2>10</h2>
+            </div>
+            <ul>
+                <div class="staticsPlayer">
+                    <li>Interceptions</li>
+                    <li>10</li>
+                </div>
+                <div class="staticsPlayer">
+                    <li>Heading Acc.</li>
+                    <li>10</li>
+                </div>
+                <div class="staticsPlayer">
+                    <li>Def. Aware</li>
+                    <li>10</li>
+                </div>
+                <div class="staticsPlayer">
+                    <li>Stand Tackle</li>
+                    <li>10</li>
+                </div>
+                <div class="staticsPlayer">
+                    <li>Slide Tackle</li>
+                    <li>10</li>
+                </div>
+            </ul>
+        </div>
+        <div>
+            <div class="staticsPlayer">
+                <h2>Physical</h2>
+                <h2>10</h2>
+            </div>
+            <ul>
+                <div class="staticsPlayer">
+                    <li>Jumping</li>
+                    <li>10</li>
+                </div>
+                <div class="staticsPlayer">
+                    <li>Stamina</li>
+                    <li>10</li>
+                </div>
+                <div class="staticsPlayer">
+                    <li>Strength</li>
+                    <li>10</li>
+                </div>
+                <div class="staticsPlayer">
+                    <li>Aggression</li>
+                    <li>10</li>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>
 
 
 {% endblock %}
