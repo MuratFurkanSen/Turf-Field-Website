@@ -43,21 +43,27 @@ const renderCalendar = (daysTag, currentDate) => {
             item.classList.add("selected");
 
             let facility_id = item.parentElement.parentElement.parentElement.parentElement.parentElement.dataset.facilityId;
-            console.log(facility_id);
-            let field_id = document.getElementById(`field_select_${facility_id}`).value;
-            fetch(`/reservation/get_reservation_options?field_id=${field_id}&selected_date=${currYear}-${currMonth + 1}-${item.innerText}`)
+            fetch(`/reservation/get_reservation_options?facility_id=${facility_id}&selected_date=${currYear}-${currMonth + 1}-${item.innerText}`)
                 .then(response => response.json())
                 .then(data => {
                     let parent = item.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector("#Anan");
                     parent.innerHTML = "";
-                    data.date_options.forEach((hour) => {
-                        let new_button = document.createElement("button");
-                        new_button.textContent = `${hour}:00-${Number(hour) + 1 === 24 ? "00" : String(Number(hour) + 1)}:00`;
-                        new_button.addEventListener("click", () => {
-                            let team_id = document.getElementById("Cool").value
-                            window.location.href = `/reservation/create?field_id=${field_id}&team_id=${team_id}&selected_date=${currYear}-${currMonth + 1}-${item.innerText}-${hour}`;
+                    data.fields_hour_options.forEach((field_hour_options) => {
+                        let field_info = Object.keys(field_hour_options)[0]
+                        let field_id = field_info.split(",")[0]
+                        let field_name = field_info.split(",").slice(1).join("")
+                        let field_name_h = document.createElement("h1");
+                        field_name_h.innerText = field_name;
+                        parent.appendChild(field_name_h);
+                        field_hour_options[field_info].forEach((hour) => {
+                            let new_button = document.createElement("button");
+                            new_button.textContent = `${hour}:00-${Number(hour) + 1 === 24 ? "00" : String(Number(hour) + 1)}:00`;
+                            new_button.addEventListener("click", () => {
+                                let team_id = document.getElementById("Cool").value
+                                window.location.href = `/reservation/create?field_id=${field_id}&team_id=${team_id}&selected_date=${currYear}-${currMonth + 1}-${item.innerText}-${hour}`;
+                            });
+                            parent.appendChild(new_button);
                         });
-                        parent.appendChild(new_button);
                     });
                     let new_select = document.createElement("select");
                     new_select.id = "Cool"

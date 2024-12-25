@@ -4,8 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect
 
+from facility.models import Facility
 from field.models import Field
-from reservation.forms import ReservationForm
 from reservation.models import Reservation
 from team.models import Team
 
@@ -37,17 +37,17 @@ def create(request):
 
 
 def get_reservation_options(request):
-    field_id = request.GET.get('field_id')
+    facility_id = request.GET.get('facility_id')
     year, month, day = request.GET.get('selected_date').split("-")
-    print(year, month, day, sep='-')
-    print(field_id)
-    field = Field.objects.get(pk=field_id)
-
+    facility = Facility.objects.get(pk=facility_id)
+    field_hour_options = []
+    for field in facility.fields.all():
+        raw_date_options = field.reservation_available_dates.filter(date__year=year, date__month=month, date__day=day)
+        field_hour_options.append({f'{field.id},{field.name}':list(map(lambda x: str(x).split()[1].split(':')[0], raw_date_options))})
+    print(field_hour_options)
     team_options = Team.objects.filter(captain=request.user)
     team_options = list(map(lambda team: f'{team.id},{team.name}', team_options))
-    date_options = field.reservation_available_dates.filter(date__year=year, date__month=month, date__day=day)
-    date_options = list(map(lambda x: str(x).split()[1].split(':')[0], date_options))
-    return JsonResponse({'date_options': date_options, 'team_options': team_options})
+    return JsonResponse({'fields_hour_options': field_hour_options, 'team_options': team_options})
 
 
 def reservation(request):

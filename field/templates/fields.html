@@ -50,11 +50,6 @@
                     </div>
                     <div class="ticket-details" data-facility-id="{{ facility.id }}">
                         <div>
-                            <select id="field_select_{{ facility.id }}">
-                                {% for field in facility.fields.all %}
-                                    <option value="{{ field.id}}">{{ field.name }}</option>
-                                {% endfor %}
-                            </select>
                             {% include 'calendar.html' %}
                         </div>
                         <div style="height: 400px;background-color: green">
